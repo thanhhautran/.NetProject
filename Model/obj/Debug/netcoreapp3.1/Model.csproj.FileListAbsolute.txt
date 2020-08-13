@@ -1,0 +1,4 @@
+D:\projectWeb\Web_MobileShop\Model\obj\Debug\netcoreapp3.1\Model.csprojAssemblyReference.cache
+D:\projectWeb\Web_MobileShop\Model\obj\Debug\netcoreapp3.1\Model.csproj.CoreCompileInputs.cache
+D:\projectWeb\Web_MobileShop\Model\obj\Debug\netcoreapp3.1\Model.AssemblyInfoInputs.cache
+D:\projectWeb\Web_MobileShop\Model\obj\Debug\netcoreapp3.1\Model.AssemblyInfo.cs
