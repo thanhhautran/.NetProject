@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\projectWeb\\Web_MobileShop\\Model\\Model.csproj": {}
+    "D:\\projectWeb\\Web_MobileShop\\.NetProject\\Model\\Model.csproj": {}
   },
   "projects": {
-    "D:\\projectWeb\\Web_MobileShop\\Model\\Model.csproj": {
+    "D:\\projectWeb\\Web_MobileShop\\.NetProject\\Model\\Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\projectWeb\\Web_MobileShop\\Model\\Model.csproj",
+        "projectUniqueName": "D:\\projectWeb\\Web_MobileShop\\.NetProject\\Model\\Model.csproj",
         "projectName": "Model",
-        "projectPath": "D:\\projectWeb\\Web_MobileShop\\Model\\Model.csproj",
+        "projectPath": "D:\\projectWeb\\Web_MobileShop\\.NetProject\\Model\\Model.csproj",
         "packagesPath": "C:\\Users\\jackg\\.nuget\\packages\\",
-        "outputPath": "D:\\projectWeb\\Web_MobileShop\\Model\\obj\\",
+        "outputPath": "D:\\projectWeb\\Web_MobileShop\\.NetProject\\Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jackg\\AppData\\Roaming\\NuGet\\NuGet.Config",
