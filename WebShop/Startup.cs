@@ -52,6 +52,18 @@ namespace WebShop
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "Register",
+                    pattern: "{controller=User}/{action=Register}/{id?}");
+            });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "Login",
+                    pattern: "{controller=User}/{action=Login}/{id?}");
+            });
         }
     }
 }

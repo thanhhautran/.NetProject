@@ -4,22 +4,36 @@ using SshNet.Security.Cryptography;
 using System.Collections.Generic;
 using System.Linq;
 
-using System.Text;
-
 namespace ProjectCore.Models.DAO
 {
     public class UserDAO
     {
-        public static usertable checkUser(string username, string password)
+        ProjectContext pt = null;
+        public UserDAO()
         {
-            var p = MD5.Create().ComputeHash(Encoding.ASCII.GetBytes(password));
-            string encodedPassWord = Encoding.ASCII.GetString(p);
-            using (var context = new ProjectContext())
+            pt = new ProjectContext();
+        }
+        public khachhang GetById(string userName)
+        {
+            return pt.Khachhang.SingleOrDefault(x => x.taikhoan == userName);
+        }
+        public int checkUser(string username, string password)
+        {
+            var result = pt.Khachhang.SingleOrDefault(x => x.taikhoan == username);
+            if (result == null)
             {
-                var user = context.usertable
-                  .Include(p => p.roletable).Where(p => p.username == username).
-                  Where(p => p.password == encodedPassWord).FirstOrDefault();
-                return user;
+                return 0;
+            }
+            else
+            {
+                if (result.matkhau == password)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return -1;
+                }
             }
         }
        public static List<usertable> getAllUser()

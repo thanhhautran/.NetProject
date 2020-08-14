@@ -13,12 +13,12 @@ namespace ProjectCore.Models
         public DbSet<thongso> Thongso { get; set; }
         public DbSet<khuyenmai> KhuyenMai { get; set; }
         public DbSet<danhmuc> Danhmuc { get; set; }
-        public DbSet<khachhang> Khachhang { get; set; }
+        public virtual DbSet<khachhang> Khachhang { get; set; }
         public DbSet<giohang> Giohang { get; set; }
         public DbSet<usertable> usertable { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("server=localhost;database=project_dotnet;user=root;password=StrongPass123");
+            optionsBuilder.UseMySQL("server=localhost;database=project_dotnet;user=root;password=1234");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
