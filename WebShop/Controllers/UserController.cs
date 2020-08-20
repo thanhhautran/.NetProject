@@ -1,11 +1,15 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
-using MySqlX.XDevAPI;
 using Project.Models.DAO;
 using ProjectCore.Models.DAO;
-using Renci.SshNet;
 using WebShop.Models;
-
+using System;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Session;
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 namespace ProjectCore.Controllers
 {
     public class UserController : Controller
@@ -21,17 +25,42 @@ namespace ProjectCore.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Register(LoginModel model)
+        public IActionResult Register(RegisterModel model)
         {
             if (ModelState.IsValid)
             {
+                var dao = new UserDAO();
+                if (dao.isExistsUser(model.taikhoan))
+                {
+                    ModelState.AddModelError("", "Tài khoản không tồn tại");
+                }
+                else
+                {
+                    var kh = new khachhang();
+                    kh.taikhoan = model.taikhoan;
+                    kh.matkhau = model.matkhau;
+                    kh.email = model.email;
+                    kh.sdt = model.sdt;
+                    kh.hoten = model.hoten;
+                    var result = dao.insertUser(kh);
+                    if (result > 0)
+                    {
+                        ViewBag.Success = "Đăng ký thành công";
+                        return Redirect("Login");
 
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "đăng ký thất bại");
+                    }
+                }
             }
             return View(model);
         }
         [HttpPost]
         public IActionResult Login(LoginModel model)
         {
+
             if (ModelState.IsValid)
             {
                 var dao = new UserDAO();
@@ -42,12 +71,27 @@ namespace ProjectCore.Controllers
                     var userSession = new khachhang();
                     userSession.idkhachhang = user.idkhachhang;
                     userSession.taikhoan = user.taikhoan;
-                    //Session.Add("User_Session", userSession);
+                    String objectAsString = JsonConvert.SerializeObject(userSession);
+
+                    HttpContext.Session.SetString("User_Session", objectAsString);
+
                     return Redirect("/");
+                }else if (result == 0)
+                {
+                    ModelState.AddModelError("", "Mật khẩu không chính xác.");
+                }else if (result == -1)
+                {
+                    ModelState.AddModelError("", "Tài khoản không tồn tại.");
                 }
                 
             }
             return View(model);
+        }
+        [HttpPost]
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove("User_Session");
+            return RedirectToAction("index");
         }
     }
 }

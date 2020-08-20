@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Project.Models.DAO;
 using SshNet.Security.Cryptography;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -16,6 +17,16 @@ namespace ProjectCore.Models.DAO
         public khachhang GetById(string userName)
         {
             return pt.Khachhang.SingleOrDefault(x => x.taikhoan == userName);
+        }
+        public Boolean isExistsUser(String userName)
+        {
+            return pt.Khachhang.Count(x => x.taikhoan == userName) >0;
+        }
+        public int insertUser(khachhang kh)
+        {
+            pt.Khachhang.Add(kh);
+            pt.SaveChanges();
+            return kh.idkhachhang;
         }
         public int checkUser(string username, string password)
         {

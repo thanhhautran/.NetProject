@@ -72,8 +72,6 @@ D:\projectWeb\Web_MobileShop\.NetProject\WebShop\bin\Debug\netcoreapp3.1\System.
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\bin\Debug\netcoreapp3.1\MySqlConnector.dll
-D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\WebShop.csproj.CoreCompileInputs.cache
-D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\WebShop.MvcApplicationPartsAssemblyInfo.cache
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\bin\Debug\netcoreapp3.1\WebShop.deps.json
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\bin\Debug\netcoreapp3.1\WebShop.runtimeconfig.json
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\bin\Debug\netcoreapp3.1\WebShop.runtimeconfig.dev.json
@@ -96,3 +94,6 @@ D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\WebShop
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\WebShop.dll
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\WebShop.pdb
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\WebShop.genruntimeconfig.cache
+D:\projectWeb\Web_MobileShop\.NetProject\WebShop\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\WebShop.csproj.CoreCompileInputs.cache
+D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\WebShop.MvcApplicationPartsAssemblyInfo.cache
