@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebShop.authentication;
 
 namespace WebShop
 {
@@ -46,7 +47,7 @@ namespace WebShop
             app.UseSession();
             app.UseRouting();
             app.UseAuthorization();
-
+            app.UseMiddleware<AuthenMiddle>();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
