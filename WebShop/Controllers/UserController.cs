@@ -10,10 +10,18 @@ using Microsoft.AspNetCore.Session;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using WebShop.Helpers;
+
 namespace ProjectCore.Controllers
 {
     public class UserController : Controller
     {
+        public IActionResult Index()
+        {
+            var user = SessionHelper.GetObjectFromJson<khachhang>(HttpContext.Session,"User_Session");
+            ViewBag.user = user;
+            return View();
+        }
         [HttpGet]
         public IActionResult Register()
         {
@@ -85,13 +93,15 @@ namespace ProjectCore.Controllers
                 }
                 
             }
+            var userSess = SessionHelper.GetObjectFromJson<khachhang>(HttpContext.Session, "User_Session");
+            ViewBag.userSess = userSess;
             return View(model);
         }
         [HttpPost]
         public IActionResult Logout()
         {
             HttpContext.Session.Remove("User_Session");
-            return RedirectToAction("index");
+            return RedirectToAction("/Index");
         }
     }
 }

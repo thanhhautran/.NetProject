@@ -169,3 +169,5 @@ D:\projectWeb\Web_MobileShop\.NetProject\WebShop\bin\Debug\netcoreapp3.1\zh-Hans
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\WebShop.csproj.CoreCompileInputs.cache
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\WebShop.MvcApplicationPartsAssemblyInfo.cache
+D:\projectWeb\Web_MobileShop\.NetProject\WebShop\bin\Debug\netcoreapp3.1\Capcha.dll
+D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Views\Cart\Cart.cshtml.g.cs

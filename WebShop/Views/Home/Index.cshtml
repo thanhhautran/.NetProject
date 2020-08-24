@@ -40,26 +40,24 @@
 									<li>
 										<a href="#">English<i class="fas fa-chevron-down"></i></a>
 										<ul>
-											<li><a href="#">Italian</a></li>
-											<li><a href="#">Spanish</a></li>
-											<li><a href="#">Japanese</a></li>
-										</ul>
-									</li>
-									<li>
-										<a href="#">$ US dollar<i class="fas fa-chevron-down"></i></a>
-										<ul>
-											<li><a href="#">EUR Euro</a></li>
-											<li><a href="#">GBP British Pound</a></li>
-											<li><a href="#">JPY Japanese Yen</a></li>
+											<li><a href="#">Vietnamese</a></li>
 										</ul>
 									</li>
 								</ul>
 							</div>
                             <div class="top_bar_user">
                                 <div class="user_icon"><img src="images/user.svg" alt=""></div>
-                                <div><a href="#">Register</a></div>
-                                <div><a href="#">Sign in</a></div>
-                                <div><a href="#"> welcome ! @Context.Session.GetString("User_Session")</a></div>
+                                @if (Context.Session.GetString("User_Session") == null)
+                                {
+                                    <div><a asp-controller="User" asp-action="Register">Register</a></div>
+
+                                    <div><a asp-controller="User" asp-action="Login">Sign in</a></div>
+                                }
+                                else
+                                {
+                                    <div><a asp-controller="User" asp-action="Logout">Log out</a></div>
+                                    <div><a href="#"> welcome </a></div>
+                                }
                             </div>
 						</div>
 					</div>
@@ -127,7 +125,7 @@
 										<div class="cart_count"><span>10</span></div>
 									</div>
 									<div class="cart_content">
-										<div class="cart_text"><a href="#">Cart</a></div>
+										<div class="cart_text"><a asp-controller="Cart" asp-action="Index">Cart</a></div>
 										<div class="cart_price">$85</div>
 									</div>
 								</div>
@@ -229,7 +227,7 @@
 											<li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
 											<li><a href="blog_single.html">Blog Post<i class="fas fa-chevron-down"></i></a></li>
 											<li><a href="regular.html">Regular Post<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="cart.html">Cart<i class="fas fa-chevron-down"></i></a></li>
+											<li><a asp-controller="Cart" asp-action="Index">Cart<i class="fas fa-chevron-down"></i></a></li>
 											<li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
 										</ul>
 									</li>

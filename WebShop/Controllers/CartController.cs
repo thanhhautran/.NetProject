@@ -16,8 +16,8 @@ namespace WebShop.Controllers
         {
             var cart = SessionHelper.GetObjectFromJson<List<chitietdonhang>>(HttpContext.Session, "cart");
             ViewBag.cart = cart;
-            ViewBag.total = cart.Sum(item => item.gia * item.soluong);
-            return View();
+            //ViewBag.total = cart.Sum(item => item.gia * item.soluong);
+            return View("Cart");
         }
         public IActionResult Add(String id)
         {
