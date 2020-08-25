@@ -10,19 +10,24 @@ namespace WebShop.Areas.Admin.Controllers
     [Area("Admin")]
     public class HomeController : Controller
     {
-        UserDao adminDAO;
-        
+        UserDao adminUserDAO;
+        ProductDao adminProductDao;
+      
         public HomeController()
         {
-            this.adminDAO = new UserDao();
+            this.adminUserDAO = new UserDao();
+            this.adminProductDao = new ProductDao();
         }
 
         public IActionResult Index()
         {
-            ViewBag.TotalUser = adminDAO.totalUser();
-            ViewBag.TotalProduct = adminDAO.totalProduct();
-            //ViewBag.totalProductThisMonth = adminDAO.totalProductThisMonth();
-           // ViewBag.totalEarningThisMonth = adminDAO.totalEarningThisMonth();
+
+            ViewBag.TotalUser = adminUserDAO.totalUser();
+            ViewBag.TotalProduct = adminProductDao.totalProduct();
+            ViewBag.totalProductThisMonth = adminProductDao.totalProductThisMonth();
+            ViewBag.totalEarningThisMonth = adminProductDao.totalEarningThisMonth();
+            ViewBag.listProduct = adminProductDao.getAllProduct();
+
             return View("Index");
         }
 

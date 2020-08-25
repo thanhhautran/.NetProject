@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\projectWeb\\Web_MobileShop\\.NetProject\\Model\\Model.csproj": {}
+    "C:\\Users\\Asus\\Source\\Repos\\thanhhautran\\.NetProject\\Model\\Model.csproj": {}
   },
   "projects": {
-    "D:\\projectWeb\\Web_MobileShop\\.NetProject\\Model\\Model.csproj": {
+    "C:\\Users\\Asus\\Source\\Repos\\thanhhautran\\.NetProject\\Model\\Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\projectWeb\\Web_MobileShop\\.NetProject\\Model\\Model.csproj",
+        "projectUniqueName": "C:\\Users\\Asus\\Source\\Repos\\thanhhautran\\.NetProject\\Model\\Model.csproj",
         "projectName": "Model",
-        "projectPath": "D:\\projectWeb\\Web_MobileShop\\.NetProject\\Model\\Model.csproj",
-        "packagesPath": "C:\\Users\\jackg\\.nuget\\packages\\",
-        "outputPath": "D:\\projectWeb\\Web_MobileShop\\.NetProject\\Model\\obj\\",
+        "projectPath": "C:\\Users\\Asus\\Source\\Repos\\thanhhautran\\.NetProject\\Model\\Model.csproj",
+        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Asus\\Source\\Repos\\thanhhautran\\.NetProject\\Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jackg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -74,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

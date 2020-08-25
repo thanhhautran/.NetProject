@@ -501,6 +501,9 @@ C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\WebShop\obj\Debug\netcoreapp
 C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Index.cshtml.g.cs
 C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_MasterLayout.cshtml.g.cs
 C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Table\Table.cshtml.g.cs
+<<<<<<< HEAD
+C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Form\Send.cshtml.g.cs
+=======
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Calendar\Calendar.cshtml.g.cs
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Chart\Chart.cshtml.g.cs
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Form\Form.cshtml.g.cs
@@ -509,3 +512,6 @@ D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\A
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Table\Table.cshtml.g.cs
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Views\Cart\Cart.cshtml.g.cs
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Views\Cart\CheckOut.cshtml.g.cs
+>>>>>>> 2f0ff7c5c95affea7f11f2c0b48b7f9a2b9302b0
+C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Views\Cart\Cart.cshtml.g.cs
+C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Views\Cart\CheckOut.cshtml.g.cs

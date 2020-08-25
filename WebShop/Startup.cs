@@ -111,7 +111,6 @@ namespace WebShop
                name: "Calendar",
                pattern: "{controller=Calender}/{action=Index}/{area?}");
 
-
                 endpoints.MapControllerRoute(
                name: "Charts",
                pattern: "{controller=Chart}/{action=Index}/{area?}");

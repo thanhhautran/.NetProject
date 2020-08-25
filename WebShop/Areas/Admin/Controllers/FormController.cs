@@ -13,5 +13,11 @@ namespace WebShop.Areas.Admin.Controllers
         {   
             return View("Form");
         }
+        [HttpGet("/Send")]
+        public IActionResult Send([FromQuery] int id)
+        {
+           
+            return View("Send");
+        }
     }
 }
