@@ -12,6 +12,7 @@ namespace WebShop.Controllers
 {
     public class CartController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
         {
             var cart = SessionHelper.GetObjectFromJson<List<chitietdonhang>>(HttpContext.Session, "cart");

@@ -27,7 +27,6 @@ D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\V
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Views\Home\regular.cshtml.g.cs
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Views\Home\shop.cshtml.g.cs
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
-D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Views\User\Login.cshtml.g.cs
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Views\User\Register.cshtml.g.cs
@@ -502,3 +501,9 @@ C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\WebShop\obj\Debug\netcoreapp
 C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Index.cshtml.g.cs
 C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_MasterLayout.cshtml.g.cs
 C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Table\Table.cshtml.g.cs
+D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Calendar\Calendar.cshtml.g.cs
+D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Chart\Chart.cshtml.g.cs
+D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Form\Form.cshtml.g.cs
+D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Index.cshtml.g.cs
+D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_MasterLayout.cshtml.g.cs
+D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Table\Table.cshtml.g.cs

@@ -98,11 +98,11 @@ namespace ProjectCore.Controllers
             ViewBag.userSess = userSess;
             return View(model);
         }
-        [HttpPost]
+        [HttpGet]
         public IActionResult Logout()
         {
             HttpContext.Session.Remove("User_Session");
-            return RedirectToAction("/Index");
+            return Redirect("/");
         }
     }
 }

@@ -65,6 +65,22 @@ namespace WebShop
                 endpoints.MapControllerRoute(
                     name: "Login",
                     pattern: "{controller=User}/{action=Login}/{id?}");
+
+                endpoints.MapControllerRoute(
+                    name: "Logout",
+                    pattern: "{controller=User}/{action=Logout}/{id?}");
+            });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "Cart",
+                    pattern: "{controller=Cart}/{action=Add}/{id?}");
+                endpoints.MapControllerRoute(
+                    name: "Cart",
+                    pattern: "{controller=Cart}/{action=Delete}/{id?}");
+                endpoints.MapControllerRoute(
+                    name: "Cart",
+                    pattern: "{controller=Cart}/{action=Index}/{id?}");
             });
             app.UseEndpoints(endpoints =>
             {
