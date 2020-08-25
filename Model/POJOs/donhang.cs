@@ -19,5 +19,6 @@ namespace Project.Models.DAO
         public Nullable<System.DateTime> ngaygiaodich { get; set; }
         public Nullable<System.DateTime> ngaygiaohang { get; set; }
         public Nullable<double> giatridon { get; set; }
+        public virtual ICollection<chitietdonhang> Chitietdonhang { get; set; }
     }
 }

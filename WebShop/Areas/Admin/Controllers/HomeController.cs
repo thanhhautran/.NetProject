@@ -21,7 +21,9 @@ namespace WebShop.Areas.Admin.Controllers
         {
             ViewBag.TotalUser = adminDAO.totalUser();
             ViewBag.TotalProduct = adminDAO.totalProduct();
-            return View();
+            ViewBag.totalProductThisMonth = adminDAO.totalProductThisMonth();
+            ViewBag.totalEarningThisMonth = adminDAO.totalEarningThisMonth();
+            return View("Index");
         }
 
         public IActionResult Admin()
