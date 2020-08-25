@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Model.POJOs;
 using Project.Models.DAO;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace ProjectCore.Models
         public DbSet<khachhang> Khachhang { get; set; }
         public DbSet<giohang> Giohang { get; set; }
         public DbSet<danhgia> Danhgia { get; set; }
-        public DbSet<usertable> usertable { get; set; }
+        public DbSet<roleTable> RoleTable { get; set; }
         public DbSet<donhang> DonHang { get; set; }
         public DbSet<chitietdonhang> Chitietdonhang { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -44,25 +45,18 @@ namespace ProjectCore.Models
             {
                 entity.HasKey(e => e.id);
                 entity.HasOne(p => p.giohang).WithOne(d => d.khachhang).HasForeignKey<giohang>(c => c.id);
+               // entity.HasOne(p => p.roleTable).WithOne(d => d.khachhang).HasForeignKey<roleTable>(c => c.id);
+
             });
             modelBuilder.Entity<donhang>(entity =>
            {
                entity.HasKey(e => e.id);
                entity.HasOne(p => p.khachhang).WithMany(d => d.donhangs);
            });
-            modelBuilder.Entity<roletable>(entity =>
+            modelBuilder.Entity<roleTable>(entity =>
             {
                 entity.HasKey(e => e.id);
-            });
-            modelBuilder.Entity<usertable>(entity =>
-            {
-                entity.HasKey(e => e.id);
-                entity.HasOne(p => p.roletable).WithOne(d => d.Usertable).HasForeignKey<roletable>(c => c.id);
-            });
-            modelBuilder.Entity<resourcetable>(entity =>
-            {
-                entity.HasKey(e => e.id);
-                entity.HasOne(p => p.roletable).WithMany(d => d.Resourcetables);
+               // entity.HasOne(p => p.role_name).WithMany(d => d.khachhang).HasForeignKey<khachhang>(c => c.id);
             });
             modelBuilder.Entity<danhgia>(entity =>
             {

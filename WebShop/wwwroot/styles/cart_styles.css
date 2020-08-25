@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 
 /******************************
@@ -1320,7 +1320,7 @@ select option
 	margin-top: 60px;
 	text-align: right;
 }
-.cart_button_clear
+form .cart_button_clear
 {
 	display: inline-block;
     border: none;
@@ -1341,7 +1341,7 @@ select option
 	border-color: #0e8ce4;
 	color: #0e8ce4;
 }
-.cart_button_checkout
+form .cart_button_checkout
 {
 	display: inline-block;
     border: none;

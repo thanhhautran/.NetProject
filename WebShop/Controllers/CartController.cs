@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Razor.Language;
 using MySqlX.XDevAPI;
@@ -52,6 +53,23 @@ namespace WebShop.Controllers
             cart.RemoveAt(index);
             SessionHelper.setObjectAsJson(HttpContext.Session, "cart", cart);
             return RedirectToAction("Index");
+        }
+        [HttpPost]
+        public IActionResult DeleteAll()
+        {
+            List<chitietdonhang> cart = SessionHelper.GetObjectFromJson<List<chitietdonhang>>(HttpContext.Session, "cart");
+            cart.Clear();
+            SessionHelper.setObjectAsJson(HttpContext.Session, "cart", cart);
+            return RedirectToAction("Cart");
+        }
+        [HttpGet]
+        public IActionResult CheckOut()
+        {
+            if (HttpContext.Session.GetString("") == null)
+            {
+                return RedirectToAction("User/Login");
+            }
+            return RedirectToAction("CheckOut");
         }
         public int InShoppingCart(String id)
         {

@@ -1,9 +1,13 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
+using Project.Models.DAO;
+using ProjectCore.Models.DAO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebShop.Helpers;
 
 namespace WebShop.authentication
 {
@@ -17,11 +21,26 @@ namespace WebShop.authentication
         public Task Invoke(HttpContext httpcontext)
         {
             var path = httpcontext.Request.Path;
-            if(path.HasValue && path.Value.StartsWith("/admin"))
+            if(path.HasValue && path.Value.StartsWith("/Admin"))
             {
-                if (httpcontext.Session.GetString("") == null)
+                if (httpcontext.Session.GetString("User_Session") == null)
                 {
-                    httpcontext.Response.Redirect("");
+                    httpcontext.Response.Redirect("/");
+                }
+                else
+                {
+                    UserDAO ud = new UserDAO();
+                    var text = httpcontext.Session.GetString("User_Session");
+                    var user = JsonConvert.DeserializeObject<khachhang>(text);
+                    String userRole = ud.getUserRole(user.id);
+                    if (userRole.Equals("admin"))
+                    {
+                        httpcontext.Response.Redirect("");
+                    }
+                    else
+                    {
+                        httpcontext.Response.Redirect("/");
+                    }
                 }
             }
             return _next(httpcontext);

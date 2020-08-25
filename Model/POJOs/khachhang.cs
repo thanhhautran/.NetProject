@@ -9,6 +9,7 @@
 
 namespace Project.Models.DAO
 {
+    using Model.POJOs;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -24,7 +25,7 @@ namespace Project.Models.DAO
         public string sdt { get; set; }
         public string diachi { get; set; }
         public string hoten { get; set; }
-
+        public roleTable roleTable { get; set; }
         public virtual ICollection<danhgia> Danhgias { get; set; }
 
         public virtual ICollection<donhang> donhangs { get; set; }
