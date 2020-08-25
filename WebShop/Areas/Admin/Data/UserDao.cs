@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using ProjectCore.Models;
 using Project.Models.DAO;
 using Microsoft.EntityFrameworkCore;
+using System.Data.Entity.SqlServer;
 
 namespace WebShop.Areas.Admin.Data
 {
@@ -34,14 +35,21 @@ namespace WebShop.Areas.Admin.Data
             return Convert.ToInt32(pt.Sanpham.Sum(i => i.soluong));
         }
 
-        public int totalProductThiMonth()
+        public int totalProductThisMonth()
         {
-            return pt.Khachhang.Count();
+            var date = DateTime.Now;
+
+           var a  =pt.Chitietdonhang.Where(c => c.donhang.ngaygiaodich.Value.Year == date.Year
+                                                    && c.donhang.ngaygiaodich.Value.Month == date.Month);
+            return (int)a.AsQueryable().Sum(a => a.soluong);
         }
 
         public int totalEarningThisMonth()
         {
-            return pt.Khachhang.Count();
+            var date = DateTime.Now;
+            return Convert.ToInt32(pt.Chitietdonhang.Where(c => c.donhang.ngaygiaodich.Value.Year == date.Year
+                                                    && c.donhang.ngaygiaodich.Value.Month == date.Month).Sum(c => c.tonggia));
+          
         }
 
     }

@@ -18,6 +18,8 @@ namespace ProjectCore.Models
         public DbSet<giohang> Giohang { get; set; }
         public DbSet<danhgia> Danhgia { get; set; }
         public DbSet<usertable> usertable { get; set; }
+        public DbSet<donhang> DonHang { get; set; }
+        public DbSet<chitietdonhang> Chitietdonhang { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
               optionsBuilder.UseMySQL("server=localhost;database=project_dotnet;user=root;password=1234")
