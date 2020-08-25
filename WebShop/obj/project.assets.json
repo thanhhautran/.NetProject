@@ -8702,19 +8702,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PC\\.nuget\\packages\\": {}
+    "C:\\Users\\Asus\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DotNET\\.NetProject-master\\WebShop\\WebShop.csproj",
+      "projectUniqueName": "C:\\Users\\Asus\\Source\\Repos\\thanhhautran\\.NetProject\\WebShop\\WebShop.csproj",
       "projectName": "WebShop",
-      "projectPath": "D:\\DotNET\\.NetProject-master\\WebShop\\WebShop.csproj",
-      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "D:\\DotNET\\.NetProject-master\\WebShop\\obj\\",
+      "projectPath": "C:\\Users\\Asus\\Source\\Repos\\thanhhautran\\.NetProject\\WebShop\\WebShop.csproj",
+      "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Asus\\Source\\Repos\\thanhhautran\\.NetProject\\WebShop\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8727,8 +8727,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\DotNET\\.NetProject-master\\Model\\Model.csproj": {
-              "projectPath": "D:\\DotNET\\.NetProject-master\\Model\\Model.csproj"
+            "C:\\Users\\Asus\\Source\\Repos\\thanhhautran\\.NetProject\\Model\\Model.csproj": {
+              "projectPath": "C:\\Users\\Asus\\Source\\Repos\\thanhhautran\\.NetProject\\Model\\Model.csproj"
             }
           }
         }
@@ -8793,7 +8793,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

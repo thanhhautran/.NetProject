@@ -26,3 +26,15 @@ D:\DotNET\.NetProject-master\Model\bin\Debug\netcoreapp3.1\Model.runtimeconfig.d
 D:\DotNET\.NetProject-master\Model\bin\Debug\netcoreapp3.1\Model.dll
 D:\DotNET\.NetProject-master\Model\bin\Debug\netcoreapp3.1\Model.pdb
 D:\DotNET\.NetProject-master\Model\obj\Debug\netcoreapp3.1\Model.genruntimeconfig.cache
+C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\Model\bin\Debug\netcoreapp3.1\Model.deps.json
+C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\Model\bin\Debug\netcoreapp3.1\Model.runtimeconfig.json
+C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\Model\bin\Debug\netcoreapp3.1\Model.runtimeconfig.dev.json
+C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\Model\bin\Debug\netcoreapp3.1\Model.dll
+C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\Model\bin\Debug\netcoreapp3.1\Model.pdb
+C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\Model\obj\Debug\netcoreapp3.1\Model.csprojAssemblyReference.cache
+C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\Model\obj\Debug\netcoreapp3.1\Model.AssemblyInfoInputs.cache
+C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\Model\obj\Debug\netcoreapp3.1\Model.AssemblyInfo.cs
+C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\Model\obj\Debug\netcoreapp3.1\Model.csproj.CoreCompileInputs.cache
+C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\Model\obj\Debug\netcoreapp3.1\Model.dll
+C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\Model\obj\Debug\netcoreapp3.1\Model.pdb
+C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\Model\obj\Debug\netcoreapp3.1\Model.genruntimeconfig.cache

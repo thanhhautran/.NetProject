@@ -77,6 +77,30 @@ namespace WebShop
                     pattern: "{controller=Product}/{action=Product}/{id?}");
             });
 
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "areas",
+                    pattern: "{area:exists}/{controller=Home}/{action=Index}");
+
+                endpoints.MapControllerRoute(
+                  name: "Tables",
+                  pattern: "{controller=Table}/{action=Table}/{area?}");
+
+                endpoints.MapControllerRoute(
+                 name: "Forms",
+                 pattern: "{controller=Form}/{action=Index}/{area?}");
+
+                endpoints.MapControllerRoute(
+               name: "Calendar",
+               pattern: "{controller=Calender}/{action=Index}/{area?}");
+
+
+                endpoints.MapControllerRoute(
+               name: "Charts",
+               pattern: "{controller=Chart}/{action=Index}/{area?}");
+            });
+
         }
     }
 }
