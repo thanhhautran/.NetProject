@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebShop.Areas.Admin.Data;
+using WebShop.Areas.Admin.Models;
 
 namespace WebShop.Areas.Admin.Controllers
 {
@@ -27,9 +28,9 @@ namespace WebShop.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public IActionResult AddItem()
-        {
-            return View();
+        public IActionResult AddItem(ProductModel model)
+        {  
+            return Redirect("/");
         }
     }
 }

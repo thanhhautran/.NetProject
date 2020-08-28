@@ -114,6 +114,8 @@ namespace WebShop
                 endpoints.MapControllerRoute(
                name: "Charts",
                pattern: "{controller=Chart}/{action=Index}/{area?}");
+
+             
             });
 
         }

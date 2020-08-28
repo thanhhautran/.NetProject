@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebShop.Areas.Admin.Models
 {
-    public class ProductModel : Controller
+    public class ProductModel
     {
         public int id { get; set; }
         public int khuyenmaiid { get; set; }
@@ -17,9 +18,9 @@ namespace WebShop.Areas.Admin.Models
         public string uudai { get; set; }
         public int danhmucid { get; set; }
         public string hinhanhsanpham { get; set; }
-        public Nullable<int> soluong { get; set; }
+        public int soluong { get; set; }
         public string cosan { get; set; }
         public string noidungkhuyenmai { get; set; }
-        public Nullable<int> phanTramGiamGia { get; set; }
+        public int phanTramGiamGia { get; set; }
     }
 }

@@ -171,3 +171,4 @@ C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\WebShop\obj\Debug\netcoreapp
 C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\WebShop\obj\Debug\netcoreapp3.1\WebShop.pdb
 C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\WebShop\obj\Debug\netcoreapp3.1\WebShop.genruntimeconfig.cache
 C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\FileUpload\Index.cshtml.g.cs
+C:\Users\Asus\Source\Repos\thanhhautran\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Table\AddItem.cshtml.g.cs
