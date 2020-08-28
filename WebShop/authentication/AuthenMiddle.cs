@@ -23,25 +23,25 @@ namespace WebShop.authentication
             var path = httpcontext.Request.Path;
             if(path.HasValue && path.Value.StartsWith("/Admin"))
             {
-                if (httpcontext.Session.GetString("User_Session") == null)
-                {
-                    httpcontext.Response.Redirect("/");
-                }
-                else
-                {
-                    UserDAO ud = new UserDAO();
-                    var text = httpcontext.Session.GetString("User_Session");
-                    var user = JsonConvert.DeserializeObject<khachhang>(text);
-                    String userRole = ud.getUserRole(user.id);
-                    if (userRole.Equals("admin"))
-                    {
-                        httpcontext.Response.Redirect("");
-                    }
-                    else
-                    {
-                        httpcontext.Response.Redirect("/");
-                    }
-                }
+                //if (httpcontext.Session.GetString("User_Session") == null)
+                //{
+                //    httpcontext.Response.Redirect("/");
+                //}
+                //else  
+                //{
+                //    UserDAO ud = new UserDAO();
+                //    var text = httpcontext.Session.GetString("User_Session");
+                //    var user = JsonConvert.DeserializeObject<khachhang>(text);
+                //    String userRole = ud.getUserRole(user.id);
+                //    if (userRole.Equals("admin"))
+                //    {
+                //        httpcontext.Response.Redirect("");
+                //    }
+                //    else
+                //    {
+                //        httpcontext.Response.Redirect("/");
+                //    }
+                //}
             }
             return _next(httpcontext);
         }

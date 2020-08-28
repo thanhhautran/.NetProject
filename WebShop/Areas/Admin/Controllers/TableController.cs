@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebShop.Areas.Admin.Data;
 
@@ -22,6 +24,12 @@ namespace WebShop.Areas.Admin.Controllers
         {
             ViewBag.listProduct = adminProductDao.getAllProduct();
             return View("Table");
+        }
+
+        [HttpGet]
+        public IActionResult AddItem()
+        {
+            return View();
         }
     }
 }

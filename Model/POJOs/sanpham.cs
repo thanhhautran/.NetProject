@@ -17,6 +17,7 @@ namespace Project.Models.DAO
     {
         [Key]
         public int id { get; set; }
+        public thongso khuyenmai { get; set; }
         public string tensanpham { get; set; }
         public string mausac { get; set; }
         public int gia { get; set; }
@@ -26,8 +27,8 @@ namespace Project.Models.DAO
         public string hinhanhsanpham { get; set; }
         public Nullable<int> soluong { get; set; }
         public string cosan { get; set; }
-        public Nullable<int> phanTramGiamGia { get; set; }
         public string noidungkhuyenmai { get; set; }
+        public Nullable<int> phanTramGiamGia { get; set; }    
         public virtual ICollection<danhgia> Danhgias { get; set; }
         public int giaSauKhuyenMai => (int)(gia - gia*(phanTramGiamGia/100));
 

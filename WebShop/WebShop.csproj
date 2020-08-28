@@ -24,10 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Models\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="Areas\Admin\Views\Calendar\Calendar.cshtml" />
     <None Include="Areas\Admin\Views\Chart\Chart.cshtml" />
     <None Include="Areas\Admin\Views\Form\Form.cshtml" />
@@ -213,6 +209,10 @@
     <None Include="wwwroot\Admin\vendor\vector-map\jquery.vmap.usa.js" />
     <None Include="wwwroot\Admin\vendor\vector-map\jquery.vmap.world.js" />
     <None Include="wwwroot\Admin\vendor\wow\wow.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Image\" />
   </ItemGroup>
 
 </Project>

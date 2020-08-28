@@ -498,6 +498,21 @@
                     </div>
                 </div>
 
+                <form method="post" enctype="multipart/form-data" asp-controller="Table" asp-action="Tab">
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <p>Upload one or more files using this form:</p>
+                            <input type="file" name="files" multiple />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <input type="submit" value="Upload" />
+                        </div>
+                    </div>
+                </form>
+
+
                 <div class="row">
                     <div class="col-md-12">
                         <div class="copyright">

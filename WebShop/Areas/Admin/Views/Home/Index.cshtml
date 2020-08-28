@@ -247,8 +247,9 @@
                                                     routeData["id"] = item.id + "";
 
                                                 }
-                                                <a class="item" asp-area="Admin" asp-controller="Form" asp-action="Send" asp-all-route-data="@routeData">
-                                                    <i class="zmdi zmdi-mail-send"></i>
+                                                <a class="item" data-toggle="tooltip" data-placement="top" title="Send" asp-area="Admin" asp-controller="Form" asp-action="Send" asp-all-route-data="@routeData">
+                                                    
+                                                        <i class="zmdi zmdi-mail-send"></i>
                                                 </a>
 
                                                 <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
