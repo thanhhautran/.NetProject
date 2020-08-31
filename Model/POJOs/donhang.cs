@@ -14,10 +14,16 @@ namespace Project.Models.DAO
     
     public partial class donhang
     {
+        //[Key]
         public int id { get; set; }
-        public khachhang khachhang { get; set; }
+        public int khachhangid { get; set; }
+        //[ForeignKey("khachhangid")]
+        public virtual khachhang khachhang { get; set; }
         public Nullable<System.DateTime> ngaygiaodich { get; set; }
         public Nullable<System.DateTime> ngaygiaohang { get; set; }
+        public string diachigiaohang { get; set; }
+        public string sdtlienlac { get; set; }
+        public string emailLienLac { get; set; }
         public Nullable<double> giatridon { get; set; }
         public virtual ICollection<chitietdonhang> Chitietdonhang { get; set; }
     }

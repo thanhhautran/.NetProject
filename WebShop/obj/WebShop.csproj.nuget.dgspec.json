@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\projectWeb\\Web_MobileShop\\.NetProject\\WebShop\\WebShop.csproj": {}
+    "D:\\DotNET\\DoAnCuoiKy2\\.NetProject\\WebShop\\WebShop.csproj": {}
   },
   "projects": {
-    "D:\\projectWeb\\Web_MobileShop\\.NetProject\\Model\\Model.csproj": {
+    "D:\\DotNET\\DoAnCuoiKy2\\.NetProject\\Model\\Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\projectWeb\\Web_MobileShop\\.NetProject\\Model\\Model.csproj",
+        "projectUniqueName": "D:\\DotNET\\DoAnCuoiKy2\\.NetProject\\Model\\Model.csproj",
         "projectName": "Model",
-        "projectPath": "D:\\projectWeb\\Web_MobileShop\\.NetProject\\Model\\Model.csproj",
-        "packagesPath": "C:\\Users\\jackg\\.nuget\\packages\\",
-        "outputPath": "D:\\projectWeb\\Web_MobileShop\\.NetProject\\Model\\obj\\",
+        "projectPath": "D:\\DotNET\\DoAnCuoiKy2\\.NetProject\\Model\\Model.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "D:\\DotNET\\DoAnCuoiKy2\\.NetProject\\Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jackg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -74,21 +74,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\projectWeb\\Web_MobileShop\\.NetProject\\WebShop\\WebShop.csproj": {
+    "D:\\DotNET\\DoAnCuoiKy2\\.NetProject\\WebShop\\WebShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\projectWeb\\Web_MobileShop\\.NetProject\\WebShop\\WebShop.csproj",
+        "projectUniqueName": "D:\\DotNET\\DoAnCuoiKy2\\.NetProject\\WebShop\\WebShop.csproj",
         "projectName": "WebShop",
-        "projectPath": "D:\\projectWeb\\Web_MobileShop\\.NetProject\\WebShop\\WebShop.csproj",
-        "packagesPath": "C:\\Users\\jackg\\.nuget\\packages\\",
-        "outputPath": "D:\\projectWeb\\Web_MobileShop\\.NetProject\\WebShop\\obj\\",
+        "projectPath": "D:\\DotNET\\DoAnCuoiKy2\\.NetProject\\WebShop\\WebShop.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "D:\\DotNET\\DoAnCuoiKy2\\.NetProject\\WebShop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jackg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -101,8 +101,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\projectWeb\\Web_MobileShop\\.NetProject\\Model\\Model.csproj": {
-                "projectPath": "D:\\projectWeb\\Web_MobileShop\\.NetProject\\Model\\Model.csproj"
+              "D:\\DotNET\\DoAnCuoiKy2\\.NetProject\\Model\\Model.csproj": {
+                "projectPath": "D:\\DotNET\\DoAnCuoiKy2\\.NetProject\\Model\\Model.csproj"
               }
             }
           }
@@ -167,7 +167,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

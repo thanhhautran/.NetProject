@@ -15,14 +15,13 @@ namespace ProjectCore.Models
         public DbSet<thongso> Thongso { get; set; }
         public DbSet<danhmuc> Danhmuc { get; set; }
         public DbSet<khachhang> Khachhang { get; set; }
-        public DbSet<giohang> Giohang { get; set; }
         public DbSet<danhgia> Danhgia { get; set; }
-        public DbSet<usertable> usertable { get; set; }
         public DbSet<donhang> DonHang { get; set; }
+        public DbSet<roleTable> RoleTable { get; set; }
         public DbSet<chitietdonhang> Chitietdonhang { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-              optionsBuilder.UseMySQL("server=localhost;database=project_dotnet;user=root;password=1234")
+              optionsBuilder.UseMySQL("server=localhost;database=project_dotnet;user=root;password=StrongPass123")
              .UseLoggerFactory(LoggerFactory.Create(b => b
                     .AddFilter(level => level >= LogLevel.Information)))
                 .EnableSensitiveDataLogging()
@@ -32,10 +31,10 @@ namespace ProjectCore.Models
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<sanpham>(entity =>
-           {
-               entity.HasKey(e => e.id);
-               entity.HasOne(p => p.thongso).WithOne(d => d.sanpham).HasForeignKey<thongso>(c => c.id);
-           });
+            {
+                entity.HasKey(e => e.id);
+                entity.HasOne(p => p.thongso).WithOne(d => d.sanpham).HasForeignKey<thongso>(c => c.id);
+            });
             modelBuilder.Entity<danhmuc>(entity =>
             {
                 entity.HasKey(e => e.id);
@@ -43,34 +42,27 @@ namespace ProjectCore.Models
             modelBuilder.Entity<khachhang>(entity =>
             {
                 entity.HasKey(e => e.id);
-                entity.HasOne(p => p.giohang).WithOne(d => d.khachhang).HasForeignKey<giohang>(c => c.id);
+                entity.HasMany(d => d.donhangs).WithOne(p => p.khachhang);
+                // entity.HasOne(p => p.roleTable).WithOne(d => d.khachhang).HasForeignKey<roleTable>(c => c.id);
+
             });
             modelBuilder.Entity<donhang>(entity =>
-           {
-               entity.HasKey(e => e.id);
-               entity.HasOne(p => p.khachhang).WithMany(d => d.donhangs);
-           });
-            modelBuilder.Entity<roletable>(entity =>
             {
                 entity.HasKey(e => e.id);
+                entity.HasOne(p => p.khachhang).WithMany(d => d.donhangs).HasForeignKey(c => c.khachhangid);
             });
-            modelBuilder.Entity<usertable>(entity =>
+            modelBuilder.Entity<roleTable>(entity =>
             {
                 entity.HasKey(e => e.id);
-                entity.HasOne(p => p.roletable).WithOne(d => d.Usertable).HasForeignKey<roletable>(c => c.id);
-            });
-            modelBuilder.Entity<resourcetable>(entity =>
-            {
-                entity.HasKey(e => e.id);
-                entity.HasOne(p => p.roletable).WithMany(d => d.Resourcetables);
+                // entity.HasOne(p => p.role_name).WithMany(d => d.khachhang).HasForeignKey<khachhang>(c => c.id);
             });
             modelBuilder.Entity<danhgia>(entity =>
             {
-                entity.HasKey(d => d.id);              
+                entity.HasKey(d => d.id);
                 entity.HasOne(d => d.sanpham).WithMany(s => s.Danhgias);
                 entity.HasOne(d => d.khachhang).WithMany(k => k.Danhgias);
             });
-            
+
         }
     }
 }

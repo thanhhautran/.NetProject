@@ -15,7 +15,8 @@ namespace Project.Models.DAO
     public partial class chitietdonhang
     {
         public int id { get; set; }
-/*        public giohang giohang { get; set; }*/
+        public int? donhangid { get; set; }
+        public int? sanphamid { get; set; }
         public donhang donhang { get; set; }
         public sanpham sanpham { get; set; }
         public string tensanpham { get; set; }

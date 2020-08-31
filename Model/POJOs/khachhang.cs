@@ -9,6 +9,7 @@
 
 namespace Project.Models.DAO
 {
+
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -17,14 +18,14 @@ namespace Project.Models.DAO
     {
         [Key]
         public int id { get; set; }
-        public giohang giohang { get; set; }
         public string taikhoan { get; set; }
         public string matkhau { get; set; }
         public string email { get; set; }
         public string sdt { get; set; }
         public string diachi { get; set; }
         public string hoten { get; set; }
-
+        public roleTable roleTable { get; set; }
+/*        public int? roleTableid { get; set; }*/
         public virtual ICollection<danhgia> Danhgias { get; set; }
 
         public virtual ICollection<donhang> donhangs { get; set; }

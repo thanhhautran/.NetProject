@@ -26,30 +26,21 @@ namespace ProjectCore.Controllers
             List<sanpham> sanpham = ProductDAO.GetListSanPham();
             List<sanpham> khuyenmai = ProductDAO.getOnSale();
             List<sanpham> danhgiacao = ProductDAO.GetBestRated();
-            
-            
+
+            List<String> dsdm = DanhmucDAO.getCateList();
             ViewBag.sanphams = sanpham;
             ViewBag.onsale = khuyenmai;
             ViewBag.bestrated = danhgiacao;
+            ViewBag.dsdm = dsdm;
             return View();
         }
-        public IActionResult Shop()
+        
+        [HttpGet]
+        public IActionResult Product(String id)
         {
-            if(Request.Query != null)
-            {
-                List<sanpham> sanpham = ProductDAO.GetListSanPham();
-                ViewBag.dssp = sanpham;
-                return View();
-            }
-            else
-            {
-                return View();
-            }
-            
-        }
-
-        public IActionResult Privacy()
-        {
+            sanpham sanpham = ProductDAO.getById(Convert.ToInt32(id));
+            ViewBag.sanpham = sanpham;
+            ViewBag.splq = ProductDAO.getByBranch(sanpham.danhmuc.tenhangsx);
             return View();
         }
 

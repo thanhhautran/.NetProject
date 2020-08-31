@@ -4,6 +4,7 @@ using SshNet.Security.Cryptography;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 
 namespace ProjectCore.Models.DAO
 {
@@ -20,7 +21,7 @@ namespace ProjectCore.Models.DAO
         }
         public Boolean isExistsUser(String userName)
         {
-            return pt.Khachhang.Count(x => x.taikhoan == userName) >0;
+            return pt.Khachhang.Count(x => x.taikhoan == userName) > 0;
         }
         public int insertUser(khachhang kh)
         {
@@ -47,14 +48,11 @@ namespace ProjectCore.Models.DAO
                 }
             }
         }
-       public static List<usertable> getAllUser()
+        public String getUserRole(int iduser)
         {
-            using(var context = new ProjectContext())
-            {
-                var users = context.usertable.Include(p => p.roletable);
-                List < usertable > userslist = users.ToList();
-                return userslist;    
-            }    
+            var userRole = pt.RoleTable.SingleOrDefault(x => x.id == iduser);
+            string result = userRole.role_name;
+            return result;
         }
     }
 }

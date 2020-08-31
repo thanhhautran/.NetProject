@@ -13,12 +13,11 @@ namespace Project.Models.DAO
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public partial class roletable
+    public partial class roleTable
     {
-        [Key]
+
         public int id { get; set; }
-        public string rolename { get; set; }
-        public virtual ICollection<resourcetable> Resourcetables { get; set; }
-        public virtual usertable Usertable { get; set; }
+        public string role_name { get; set; }
+        /*public virtual ICollection<khachhang> Khachhangs {get; set;}*/
     }
 }

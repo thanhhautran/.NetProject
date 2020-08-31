@@ -1,6 +1,14 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 @model IEnumerable<Project.Models.DAO.sanpham>
+@using Microsoft.AspNetCore.Http;
+@{ List<Project.Models.DAO.sanpham> dssp = ViewBag.dssp;}
+@{ List<String> dsdm = ViewBag.dsdm; List<String> dsnsx = ViewBag.dsnsx;}
+@{ String category = ViewBag.category;
+    String brand = ViewBag.brand;
+    String color = ViewBag.color;
+    int pageIndex = ViewBag.PageIndex;
+    int pageSize = ViewBag.pageSize; }
 <head>
     <title>Shop</title>
     <meta charset="utf-8">
@@ -56,9 +64,19 @@
                                     </ul>
                                 </div>
                                 <div class="top_bar_user">
-                                    <div class="user_icon"><img src="~/images/user.svg" alt=""></div>
-                                    <div><a href="#">Register</a></div>
-                                    <div><a href="#">Sign in</a></div>
+                                    <div class="user_icon"><img src="images/user.svg" alt=""></div>
+                                    @if (Context.Session.GetString("User_Session") == null)
+                                    {
+                                        <div><a asp-controller="User" asp-action="Register">Register</a></div>
+
+                                        <div><a asp-controller="User" asp-action="Login">Sign in</a></div>
+                                    }
+                                    else
+                                    {
+                                        <div><a asp-controller="User" asp-action="Logout">Log out</a></div>
+                                        var userSess = ViewBag.userSess;
+                                        <div><a href="#"> welcome userSess.taikhoan</a></div>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -223,14 +241,17 @@
                                         <li class="hassubs">
                                             <a href="#">Pages<i class="fas fa-chevron-down"></i></a>
                                             <ul>
-                                                <li><a href="shop.html">Shop<i class="fas fa-chevron-down"></i></a></li>
-                                                <li><a href="product.html">Product<i class="fas fa-chevron-down"></i></a></li>
-                                                <li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
-                                                <li><a href="blog_single.html">Blog Post<i class="fas fa-chevron-down"></i></a></li>
-                                                <li><a href="regular.html">Regular Post<i class="fas fa-chevron-down"></i></a></li>
-                                                <li><a href="cart.html">Cart<i class="fas fa-chevron-down"></i></a></li>
-                                                <li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
-                                            </ul>
+                                            
+
+
+                                        <li><a href="shop.html">Shop<i class="fas fa-chevron-down"></i></a></li>
+                                        <li><a href="product.html">Product<i class="fas fa-chevron-down"></i></a></li>
+                                        <li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
+                                        <li><a href="blog_single.html">Blog Post<i class="fas fa-chevron-down"></i></a></li>
+                                        <li><a href="regular.html">Regular Post<i class="fas fa-chevron-down"></i></a></li>
+                                        <li><a href="cart.html">Cart<i class="fas fa-chevron-down"></i></a></li>
+                                        <li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
+                                    </ul>
                                         </li>
                                         <li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
                                         <li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
@@ -363,17 +384,26 @@
                         <div class="shop_sidebar">
                             <div class="sidebar_section">
                                 <div class="sidebar_title">Categories</div>
+
                                 <ul class="sidebar_categories">
-                                    <li><a href="#">Computers & Laptops</a></li>
-                                    <li><a href="#">Cameras & Photos</a></li>
-                                    <li><a href="#">Hardware</a></li>
-                                    <li><a href="#">Smartphones & Tablets</a></li>
-                                    <li><a href="#">TV & Audio</a></li>
-                                    <li><a href="#">Gadgets</a></li>
-                                    <li><a href="#">Car Electronics</a></li>
-                                    <li><a href="#">Video Games & Consoles</a></li>
-                                    <li><a href="#">Accessories</a></li>
+                                    @{ String url = "/Shop/Shop?Brand=" + brand + "&pageIndex=" + pageIndex;}
+                                    @foreach (var cat in dsdm)
+                                    {
+                                        @if (cat.Equals(category))
+                                        {
+                                            String addcateURL = url + "&Category=" + "all";
+                                            <li><a href="@url">@cat</a></li>
+                                        }
+                                        else
+                                        {
+                                            String addcateURL = url + "&Category=" + cat;
+                                            <li><a href="@addcateURL">@cat</a></li>
+                                        }
+
+                                    }
                                 </ul>
+
+
                             </div>
                             <div class="sidebar_section filter_by_section">
                                 <div class="sidebar_title">Filter By</div>
@@ -395,18 +425,27 @@
                                     <li class="color"><a href="#" style="background: #ffffff; border: solid 1px #e1e1e1;"></a></li>
                                 </ul>
                             </div>
+
                             <div class="sidebar_section">
                                 <div class="sidebar_subtitle brands_subtitle">Brands</div>
                                 <ul class="brands_list">
-                                    <li class="brand"><a href="#">Apple</a></li>
-                                    <li class="brand"><a href="#">Beoplay</a></li>
-                                    <li class="brand"><a href="#">Google</a></li>
-                                    <li class="brand"><a href="#">Meizu</a></li>
-                                    <li class="brand"><a href="#">OnePlus</a></li>
-                                    <li class="brand"><a href="#">Samsung</a></li>
-                                    <li class="brand"><a href="#">Sony</a></li>
-                                    <li class="brand"><a href="#">Xiaomi</a></li>
+                                    @{ String url2 = "/Shop/Shop?Category=" + category + "&pageIndex=" + pageIndex;}
+                                    @foreach (var nhasx in dsnsx)
+                                    {
+                                        @if (nhasx.Equals(brand))
+                                        {
+                                            String addbrandURL = url2 + "&Brand=" + "all";
+                                            <li class="brand"><a href="@url2">@nhasx</a></li>
+                                        }
+                                        else
+                                        {
+                                            String addbrandURL = url2 + "&Brand=" + nhasx;
+                                            <li><a href="@addbrandURL">@nhasx</a></li>
+                                        }
+                                    }
                                 </ul>
+
+
                             </div>
                         </div>
 
@@ -418,7 +457,7 @@
 
                         <div class="shop_content">
                             <div class="shop_bar clearfix">
-                                <div class="shop_product_count"><span>186</span> products found</div>
+                                <div class="shop_product_count"><span>@dssp.Count()</span> products found</div>
                                 <div class="shop_sorting">
                                     <span>Sort by:</span>
                                     <ul>
@@ -438,306 +477,23 @@
                                 <div class="product_grid_border"></div>
                                 @foreach (var sanpham in ViewBag.dssp)
                                 {
-                                <!-- Product Item -->
-                                <div class="product_item is_new">
-                                    <div class="product_border"></div>
-                                    <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="~/images/new_5.jpg" alt=""></div>
-                                    <div class="product_content">
-                                        <div class="product_price">@sanpham.gia</div>
-                                        <div class="product_name"><div><a href="#" tabindex="0">@sanpham.tensanpham</a></div></div>
+                                    <!-- Product Item -->
+                                    <div class="product_item is_new">
+                                        <div class="product_border"></div>
+                                        <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="~/images/new_5.jpg" alt=""></div>
+                                        <div class="product_content">
+                                            <div class="product_price">@sanpham.gia</div>
+                                            <div class="product_name"><div><a href="#" tabindex="0">@sanpham.tensanpham</a></div></div>
+                                        </div>
+                                        <div class="product_fav"><i class="fas fa-heart"></i></div>
+                                        <ul class="product_marks">
+                                            <li class="product_mark product_discount">-@sanpham.phanTramGiamGia</li>
+                                            <li class="product_mark product_new">new</li>
+                                        </ul>
                                     </div>
-                                    <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                    <ul class="product_marks">
-                                        <li class="product_mark product_discount">-@sanpham.phanTramGiamGia</li>
-                                        <li class="product_mark product_new">new</li>
-                                    </ul>
-                                </div>
                                 }
 
-                                <!-- Product Item -->
-                                <!--<div class="product_item discount">
-                                    <div class="product_border"></div>
-                                    <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="~/images/featured_1.png" alt=""></div>
-                                    <div class="product_content">
-                                        <div class="product_price">$225<span>$300</span></div>
-                                        <div class="product_name"><div><a href="#" tabindex="0">Huawei MediaPad...</a></div></div>
-                                    </div>
-                                    <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                    <ul class="product_marks">
-                                        <li class="product_mark product_discount">-25%</li>
-                                        <li class="product_mark product_new">new</li>
-                                    </ul>
-                                </div>-->
 
-                                <!-- Product Item -->
-                                <!--<div class="product_item">
-                                    <div class="product_border"></div>
-                                    <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="~/images/featured_2.png" alt=""></div>
-                                    <div class="product_content">
-                                        <div class="product_price">$379</div>
-                                        <div class="product_name"><div><a href="#" tabindex="0">Apple iPod shuffle</a></div></div>
-                                    </div>
-                                    <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                    <ul class="product_marks">
-                                        <li class="product_mark product_discount">-25%</li>
-                                        <li class="product_mark product_new">new</li>
-                                    </ul>
-                                </div>-->
-
-                                <!-- Product Item -->
-                                <!--<div class="product_item">
-                                    <div class="product_border"></div>
-                                    <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="~/images/featured_3.png" alt=""></div>
-                                    <div class="product_content">
-                                        <div class="product_price">$225</div>
-                                        <div class="product_name"><div><a href="#" tabindex="0">Sony MDRZX310W</a></div></div>
-                                    </div>
-                                    <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                    <ul class="product_marks">
-                                        <li class="product_mark product_discount">-25%</li>
-                                        <li class="product_mark product_new">new</li>
-                                    </ul>
-                                </div>-->
-
-                                <!-- Product Item -->
-                                <!--<div class="product_item is_new">
-                                    <div class="product_border"></div>
-                                    <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="~/images/featured_4.png" alt=""></div>
-                                    <div class="product_content">
-                                        <div class="product_price">$379</div>
-                                        <div class="product_name"><div><a href="#" tabindex="0">LUNA Smartphone</a></div></div>
-                                    </div>
-                                    <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                    <ul class="product_marks">
-                                        <li class="product_mark product_discount">-25%</li>
-                                        <li class="product_mark product_new">new</li>
-                                    </ul>
-                                </div>-->
-
-                                <!-- Product Item -->
-                                <!--<div class="product_item is_new">
-                                    <div class="product_border"></div>
-                                    <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="~/images/shop_1.jpg" alt=""></div>
-                                    <div class="product_content">
-                                        <div class="product_price">$379</div>
-                                        <div class="product_name"><div><a href="#" tabindex="0">Canon IXUS 175...</a></div></div>
-                                    </div>
-                                    <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                    <ul class="product_marks">
-                                        <li class="product_mark product_discount">-25%</li>
-                                        <li class="product_mark product_new">new</li>
-                                    </ul>
-                                </div>-->
-
-                                <!-- Product Item -->
-                                <!--<div class="product_item">
-                                    <div class="product_border"></div>
-                                    <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="~/images/featured_5.png" alt=""></div>
-                                    <div class="product_content">
-                                        <div class="product_price">$379<span>$300</span></div>
-                                        <div class="product_name"><div><a href="#" tabindex="0">Canon STM Kit...</a></div></div>
-                                    </div>
-                                    <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                    <ul class="product_marks">
-                                        <li class="product_mark product_discount">-25%</li>
-                                        <li class="product_mark product_new">new</li>
-                                    </ul>
-                                </div>-->
-
-                                <!-- Product Item -->
-                                <!--<div class="product_item">
-                                    <div class="product_border"></div>
-                                    <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="~/images/featured_6.png" alt=""></div>
-                                    <div class="product_content">
-                                        <div class="product_price">$225<span>$300</span></div>
-                                        <div class="product_name"><div><a href="#" tabindex="0">Samsung J330F</a></div></div>
-                                    </div>
-                                    <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                    <ul class="product_marks">
-                                        <li class="product_mark product_discount">-25%</li>
-                                        <li class="product_mark product_new">new</li>
-                                    </ul>
-                                </div>-->
-
-                                <!-- Product Item -->
-                                <!--<div class="product_item">
-                                    <div class="product_border"></div>
-                                    <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="~/images/featured_7.png" alt=""></div>
-                                    <div class="product_content">
-                                        <div class="product_price">$225</div>
-                                        <div class="product_name"><div><a href="#" tabindex="0">Lenovo IdeaPad</a></div></div>
-                                    </div>
-                                    <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                    <ul class="product_marks">
-                                        <li class="product_mark product_discount">-25%</li>
-                                        <li class="product_mark product_new">new</li>
-                                    </ul>
-                                </div>-->
-
-                                <!-- Product Item -->
-                                <!--<div class="product_item">
-                                    <div class="product_border"></div>
-                                    <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="~/images/featured_8.png" alt=""></div>
-                                    <div class="product_content">
-                                        <div class="product_price">$379</div>
-                                        <div class="product_name"><div><a href="#" tabindex="0">Digitus EDNET...</a></div></div>
-                                    </div>
-                                    <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                    <ul class="product_marks">
-                                        <li class="product_mark product_discount">-25%</li>
-                                        <li class="product_mark product_new">new</li>
-                                    </ul>
-                                </div>-->
-
-                                <!-- Product Item -->
-                                <!--<div class="product_item is_new">
-                                    <div class="product_border"></div>
-                                    <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="~/images/new_1.jpg" alt=""></div>
-                                    <div class="product_content">
-                                        <div class="product_price">$225</div>
-                                        <div class="product_name"><div><a href="#" tabindex="0">Astro M2 Black</a></div></div>
-                                    </div>
-                                    <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                    <ul class="product_marks">
-                                        <li class="product_mark product_discount">-25%</li>
-                                        <li class="product_mark product_new">new</li>
-                                    </ul>
-                                </div>-->
-
-                                <!-- Product Item -->
-                                <!--<div class="product_item is_new">
-                                    <div class="product_border"></div>
-                                    <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="~/images/new_2.jpg" alt=""></div>
-                                    <div class="product_content">
-                                        <div class="product_price">$225</div>
-                                        <div class="product_name"><div><a href="#" tabindex="0">Transcend T.Sonic</a></div></div>
-                                    </div>
-                                    <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                    <ul class="product_marks">
-                                        <li class="product_mark product_discount">-25%</li>
-                                        <li class="product_mark product_new">new</li>
-                                    </ul>
-                                </div>-->
-
-                                <!-- Product Item -->
-                                <!--<div class="product_item is_new">
-                                    <div class="product_border"></div>
-                                    <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="~/images/new_3.jpg" alt=""></div>
-                                    <div class="product_content">
-                                        <div class="product_price">$225</div>
-                                        <div class="product_name"><div><a href="#" tabindex="0">Xiaomi Band 2...</a></div></div>
-                                    </div>
-                                    <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                    <ul class="product_marks">
-                                        <li class="product_mark product_discount">-25%</li>
-                                        <li class="product_mark product_new">new</li>
-                                    </ul>
-                                </div>-->
-
-                                <!-- Product Item -->
-                                <!--<div class="product_item is_new">
-                                    <div class="product_border"></div>
-                                    <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="~/images/new_4.jpg" alt=""></div>
-                                    <div class="product_content">
-                                        <div class="product_price">$379</div>
-                                        <div class="product_name"><div><a href="#" tabindex="0">Rapoo T8 White</a></div></div>
-                                    </div>
-                                    <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                    <ul class="product_marks">
-                                        <li class="product_mark product_discount">-25%</li>
-                                        <li class="product_mark product_new">new</li>
-                                    </ul>
-                                </div>-->
-
-                                <!-- Product Item -->
-                                <!--<div class="product_item discount">
-                                    <div class="product_border"></div>
-                                    <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="~/images/featured_1.png" alt=""></div>
-                                    <div class="product_content">
-                                        <div class="product_price">$225<span>$300</span></div>
-                                        <div class="product_name"><div><a href="#" tabindex="0">Huawei MediaPad...</a></div></div>
-                                    </div>
-                                    <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                    <ul class="product_marks">
-                                        <li class="product_mark product_discount">-25%</li>
-                                        <li class="product_mark product_new">new</li>
-                                    </ul>
-                                </div>-->
-
-                                <!-- Product Item -->
-                                <!--<div class="product_item is_new">
-                                    <div class="product_border"></div>
-                                    <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="~/images/new_6.jpg" alt=""></div>
-                                    <div class="product_content">
-                                        <div class="product_price">$379</div>
-                                        <div class="product_name"><div><a href="#" tabindex="0">Nokia 3310 (2017)</a></div></div>
-                                    </div>
-                                    <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                    <ul class="product_marks">
-                                        <li class="product_mark product_discount">-25%</li>
-                                        <li class="product_mark product_new">new</li>
-                                    </ul>
-                                </div>-->
-
-                                <!-- Product Item -->
-                                <!--<div class="product_item is_new">
-                                    <div class="product_border"></div>
-                                    <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="~/images/new_7.jpg" alt=""></div>
-                                    <div class="product_content">
-                                        <div class="product_price">$225</div>
-                                        <div class="product_name"><div><a href="#" tabindex="0">Rapoo 7100p Gray</a></div></div>
-                                    </div>
-                                    <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                    <ul class="product_marks">
-                                        <li class="product_mark product_discount">-25%</li>
-                                        <li class="product_mark product_new">new</li>
-                                    </ul>
-                                </div>-->
-
-                                <!-- Product Item -->
-                                <!--<div class="product_item is_new">
-                                    <div class="product_border"></div>
-                                    <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="~/images/new_8.jpg" alt=""></div>
-                                    <div class="product_content">
-                                        <div class="product_price">$379</div>
-                                        <div class="product_name"><div><a href="#" tabindex="0">Canon EF</a></div></div>
-                                    </div>
-                                    <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                    <ul class="product_marks">
-                                        <li class="product_mark product_discount">-25%</li>
-                                        <li class="product_mark product_new">new</li>
-                                    </ul>
-                                </div>-->
-
-                                <!-- Product Item -->
-                                <!--<div class="product_item is_new">
-                                    <div class="product_border"></div>
-                                    <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="~/images/shop_2.jpg" alt=""></div>
-                                    <div class="product_content">
-                                        <div class="product_price">$225</div>
-                                        <div class="product_name"><div><a href="#" tabindex="0">Gembird SPK-103</a></div></div>
-                                    </div>
-                                    <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                    <ul class="product_marks">
-                                        <li class="product_mark product_discount">-25%</li>
-                                        <li class="product_mark product_new">new</li>
-                                    </ul>
-                                </div>-->
-
-                                <!-- Product Item -->
-                                <!--<div class="product_item is_new">
-                                    <div class="product_border"></div>
-                                    <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="~/images/featured_5.png" alt=""></div>
-                                    <div class="product_content">
-                                        <div class="product_price">$379</div>
-                                        <div class="product_name"><div><a href="#" tabindex="0">Canon STM Kit...</a></div></div>
-                                    </div>
-                                    <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                    <ul class="product_marks">
-                                        <li class="product_mark product_discount">-25%</li>
-                                        <li class="product_mark product_new">new</li>
-                                    </ul>
-                                </div>-->
 
                             </div>
 
@@ -746,11 +502,20 @@
                             <div class="shop_page_nav d-flex flex-row">
                                 <div class="page_prev d-flex flex-column align-items-center justify-content-center"><i class="fas fa-chevron-left"></i></div>
                                 <ul class="page_nav d-flex flex-row">
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">...</a></li>
-                                    <li><a href="#">21</a></li>
+                                    @{ String url3 = "/Shop/Shop?Category=" + category + "&brand=" + brand;}
+                                    @for (var i = 1; i <= pageSize; i++)
+                                    {
+                                        if (i == pageIndex)
+                                        {
+                                            String paginURL = url3 + "&pageIndex=" + "all";
+                                            <li><a href="@url3">@i</a></li>
+                                        }
+                                        else
+                                        {
+                                            String paginURL = url3 + "&pageIndex=" + i;
+                                            <li><a href="@paginURL">@i</a></li>
+                                        }
+                                    }
                                 </ul>
                                 <div class="page_next d-flex flex-column align-items-center justify-content-center"><i class="fas fa-chevron-right"></i></div>
                             </div>
@@ -1057,6 +822,11 @@
     <script src="~/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
     <script src="~/plugins/parallax-js-master/parallax.min.js"></script>
     <script src="~/js/shop_custom.js"></script>
+    <script>
+        function findFunction(param, value) {
+            location.replace("/Home/Index")
+        }
+    </script>
 </body>
 
 </html>

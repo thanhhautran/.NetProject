@@ -27,6 +27,7 @@ namespace WebShop
             services.AddControllersWithViews();
             services.AddMvc();//add 
             services.AddSession();//add
+            services.AddDbContext<ProjectCore.Models.ProjectContext>(ServiceLifetime.Transient);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -115,6 +116,12 @@ namespace WebShop
                 endpoints.MapControllerRoute(
                name: "Charts",
                pattern: "{controller=Chart}/{action=Index}/{area?}");
+            });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "Search",
+                    pattern: "{controller=}/{action=Search}/{id?}");
             });
 
         }

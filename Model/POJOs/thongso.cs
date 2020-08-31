@@ -34,7 +34,7 @@ namespace Project.Models.DAO
         public string dungluongpin { get; set; }
         public string bluetooth { get; set; }
         public string wifi { get; set; }
-        public string C5G { get; set; }
+         public string C5G { get; set; }
         public string loaisim { get; set; }
         public sanpham sanpham { get; set; }
     }

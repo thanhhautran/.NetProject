@@ -15,12 +15,14 @@ namespace Project.Models.DAO
 
     public partial class sanpham
     {
-        [Key]
+        
         public int id { get; set; }
         public string tensanpham { get; set; }
         public string mausac { get; set; }
         public int gia { get; set; }
         public thongso thongso { get; set; }
+        public int? thongsoid { get; set; }
+        public int? danhmucid { get; set; }
         public string uudai { get; set; }
         public danhmuc danhmuc { get; set; }
         public string hinhanhsanpham { get; set; }

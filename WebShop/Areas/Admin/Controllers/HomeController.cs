@@ -19,6 +19,7 @@ namespace WebShop.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
+            
             ViewBag.TotalUser = adminDAO.totalUser();
             ViewBag.TotalProduct = adminDAO.totalProduct();
             ViewBag.totalProductThisMonth = adminDAO.totalProductThisMonth();
