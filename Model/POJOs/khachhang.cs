@@ -17,7 +17,7 @@ namespace Project.Models.DAO
 
     public partial class khachhang
     {
-        [Key]
+       
         public int id { get; set; }
         public string taikhoan { get; set; }
         public string matkhau { get; set; }
@@ -25,6 +25,7 @@ namespace Project.Models.DAO
         public string sdt { get; set; }
         public string diachi { get; set; }
         public string hoten { get; set; }
+        public int? roleTableid { get; set; }
         public roleTable roleTable { get; set; }
         public virtual ICollection<danhgia> Danhgias { get; set; }
 

@@ -8,45 +8,39 @@ using ProjectCore.Models;
 using Project.Models.DAO;
 using Microsoft.EntityFrameworkCore;
 using System.Data.Entity.SqlServer;
+using System.Security.Principal;
 
 namespace WebShop.Areas.Admin.Data
 {
     public class UserDao : Controller
     {
-        ProjectContext pt = null;
+        ProjectContext dbContext = null;
 
         public UserDao()
         {
-            this.pt = new ProjectContext();
+            this.dbContext = new ProjectContext();
         }
 
         public int totalUser()
         {
-            return pt.Khachhang.Count();
+            return dbContext.Khachhang.Count();
         }
 
         public int totalProduct()
         {
-            return Convert.ToInt32(pt.Sanpham.Sum(i => i.soluong));
+            return Convert.ToInt32(dbContext.Sanpham.Sum(i => i.soluong));
         }
 
-        public int totalProductThisMonth()
+        public List<khachhang> getUser(int role)
         {
-            var date = DateTime.Now;
-
-            var a = pt.Chitietdonhang.Where(c => c.donhang.ngaygiaodich.Value.Year == date.Year
-                                                   && c.donhang.ngaygiaodich.Value.Month == date.Month);
-            return (int)a.AsQueryable().Sum(a => a.soluong);
+            if (role == 0)
+            {
+                return dbContext.Khachhang.ToList();
+            }
+            else
+            {
+                return dbContext.Khachhang.Where(i => i.roleTable.id == role).ToList();
+            }
         }
-
-        public int totalearningthismonth()
-        {
-            var date = DateTime.Now;
-            return Convert.ToInt32(pt.Chitietdonhang.Where(c => c.donhang.ngaygiaodich.Value.Year == date.Year
-                                                     && c.donhang.ngaygiaodich.Value.Month == date.Month).Sum(c => c.tonggia));
-
-        }
-
-
     }
 }

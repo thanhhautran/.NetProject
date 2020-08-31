@@ -24,6 +24,7 @@ namespace Project.Models.DAO
         public string diachigiaohang { get; set; }
         public string sdtlienlac { get; set; }
         public string emailLienLac { get; set; }
+        public string trangthai { get; set; }
         public Nullable<double> giatridon { get; set; }
         public virtual ICollection<chitietdonhang> Chitietdonhang { get; set; }
     }

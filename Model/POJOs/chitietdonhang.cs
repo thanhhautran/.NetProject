@@ -21,7 +21,7 @@ namespace Project.Models.DAO
         public sanpham sanpham { get; set; }
         public string tensanpham { get; set; }
         public Nullable<int> soluong { get; set; }
-        public Nullable<double> gia { get; set; }
-        public Nullable<double> tonggia { get; set; }
+        public int gia { get; set; }
+        public int tonggia { get; set; }
     }
 }

@@ -1,0 +1,132 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model WebShop.Areas.Admin.Models.OrderModel;
+@{
+    ViewData["Title"] = "EditOrderForm";
+    Layout = "~/Areas/Admin/Views/Shared/_MasterLayout.cshtml";
+    var order = ViewBag.Order;
+  
+    var routeData = new Dictionary<string, string>();
+    routeData["id"] = ViewBag.Id + "";
+}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            <form method="post" class="form-horizontal" asp-controller="Table" asp-action="EditOrder" asp-all-route-data="@routeData">
+                <div class="form-group row">
+
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong>Edit Order Form </strong> Elements
+                            </div>
+
+                            <div class="card-body card-block">
+                                <!--Name-->
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        <label asp-for="khachhangid" class="control-label">Customer's ID</label>
+
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <input asp-for="khachhangid" value=@order.khachhangid disabled class="form-control" />
+                                        <span asp-validation-for="khachhangid" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <!--Color-->
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        <label asp-for="temp" class="control-label">Order's date</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <input asp-for="temp" value=@order.ngaygiaodich disabled class="form-control" />
+                                        <span asp-validation-for="temp" class="text-danger"></span>
+                                        <small class="help-block form-text"></small>
+                                    </div>
+                                </div>
+
+                                <!--Price-->
+                                <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        <label asp-for="ngaygiaohang" class="control-label">Send date</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <input asp-for="ngaygiaohang" value=@order.ngaygiaohang class="form-control" />
+                                        <span asp-validation-for="ngaygiaohang" class="text-danger"></span>
+                                        <small class="help-block form-text">Please enter Send Date</small>
+                                    </div>
+                                </div>
+
+                                <!--Specification ID-->
+                                <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        <label asp-for="diachigiaohang" class="control-label"> Place </label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <input asp-for="diachigiaohang" value=@order.diachigiaohang class="form-control" />
+                                        <span asp-validation-for="diachigiaohang" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <!--Type-->
+                                <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        <label asp-for="emailLienLac" class="control-label">Email</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <input asp-for="emailLienLac" value=@order.emailLienLac class="form-control" />
+                                        <span asp-validation-for="emailLienLac" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <!--Benefit-->
+                                <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        <label asp-for="giatridon" class="control-label">Cost</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <input asp-for="giatridon" value=@order.giatridon class="form-control" />
+                                        <span asp-validation-for="giatridon" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        <label asp-for="trangthai" class="control-label">Status</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <select asp-for="trangthai" class="form-control-sm form-control">
+                                            <option value=@order.trangthai>@order.trangthai</option>
+                                            <option value="Prepared">Prepared</option>
+                                            <option value="Packaged">Pacakged</option>
+                                            <option value="Moving">Moving</option>
+                                            <option value="Sent">Sent</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+
+                            <button type="submit" action="AddItem" class="btn btn-primary btn-sm">
+                                <i class="fa fa-dot-circle-o"></i> Submit
+                            </button>
+
+                            <button type="reset" class="btn btn-danger btn-sm">
+                                <i class="fa fa-ban"></i> Reset
+                            </button>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>

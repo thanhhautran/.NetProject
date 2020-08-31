@@ -34,8 +34,8 @@ namespace WebShop.Areas.Admin.Data
         public int totalEarningThisMonth()
         {
             var date = DateTime.Now;
-            return Convert.ToInt32(pt.Chitietdonhang.Where(c => c.donhang.ngaygiaodich.Value.Year == date.Year
-                                                    && c.donhang.ngaygiaodich.Value.Month == date.Month).Sum(c => c.tonggia));
+            return Convert.ToInt32(pt.DonHang.Where(c => c.ngaygiaodich.Value.Year == date.Year
+                                                    && c.ngaygiaodich.Value.Month == date.Month).Sum(c => c.giatridon));
 
         }   
 
@@ -43,6 +43,11 @@ namespace WebShop.Areas.Admin.Data
         {
             
             return pt.Sanpham.ToList();
+        }
+
+        public List<donhang> getOrder()
+        {
+            return pt.DonHang.ToList();
         }
     }
 }

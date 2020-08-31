@@ -115,7 +115,7 @@ namespace WebShop.Controllers
                     tensanpham = cart[i].sanpham.tensanpham,
                     soluong = cart[i].soluong,
                     gia = cart[i].sanpham.gia,
-                    tonggia = cart[i].sanpham.gia * cart[i].soluong
+                    tonggia = Convert.ToInt32(cart[i].sanpham.gia * cart[i].soluong)
                 };
                 pd.writeDetailReceipt(ctdh);
             }

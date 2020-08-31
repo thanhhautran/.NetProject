@@ -15,7 +15,7 @@ namespace Project.Models.DAO
 
     public partial class thongso
     {
-        [Key]
+      
         public int id { get; set; }
         public string hedieuhanh { get; set; }
         public string loaimanhinh { get; set; }

@@ -26,9 +26,23 @@
   <ItemGroup>
     <None Include="Areas\Admin\Views\Calendar\Calendar.cshtml" />
     <None Include="Areas\Admin\Views\Chart\Chart.cshtml" />
+    <None Include="Areas\Admin\Views\FileUpload\Index.cshtml" />
     <None Include="Areas\Admin\Views\Form\Form.cshtml" />
     <None Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <None Include="Areas\Admin\Views\Icon\Alerts.cshtml" />
+    <None Include="Areas\Admin\Views\Icon\Badges.cshtml" />
+    <None Include="Areas\Admin\Views\Icon\Button.cshtml" />
+    <None Include="Areas\Admin\Views\Icon\Cards.cshtml" />
+    <None Include="Areas\Admin\Views\Icon\FontawesomeIcon.cshtml" />
+    <None Include="Areas\Admin\Views\Icon\Grids.cshtml" />
+    <None Include="Areas\Admin\Views\Icon\Modals.cshtml" />
+    <None Include="Areas\Admin\Views\Icon\ProgressBars.cshtml" />
+    <None Include="Areas\Admin\Views\Icon\Switchs.cshtml" />
+    <None Include="Areas\Admin\Views\Icon\Tabs.cshtml" />
     <None Include="Areas\Admin\Views\Shared\_MasterLayout.cshtml" />
+    <None Include="Areas\Admin\Views\Table\AddItemForm.cshtml" />
+    <None Include="Areas\Admin\Views\Table\EditItemForm.cshtml" />
+    <None Include="Areas\Admin\Views\Table\EditOrderForm.cshtml" />
     <None Include="Areas\Admin\Views\Table\Table.cshtml" />
     <None Include="Views\Shop\shop.cshtml" />
     <None Include="wwwroot\Admin\fonts\poppins\poppins-v5-latin-100.svg" />

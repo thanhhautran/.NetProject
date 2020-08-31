@@ -1,136 +1,86 @@
-﻿@{
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
     ViewBag.Title = "Table";
     Layout = "~/Areas/Admin/Views/Shared/_MasterLayout.cshtml";
     var listProduct = ViewBag.listProduct;
+    var listOrder = ViewBag.ListOrder;
+    var listUser = ViewBag.ListUser;
+
 }
 
 <div class="main-content">
     <div class="section__content section__content--p30">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-9">
-                    <div class="table-responsive table--no-card m-b-30">
-                        <table class="table table-borderless table-striped table-earning">
-                            <thead>
-                                <tr>
-                                    <th>date</th>
-                                    <th>order ID</th>
-                                    <th>name</th>
-                                    <th class="text-right">price</th>
-                                    <th class="text-right">quantity</th>
-                                    <th class="text-right">total</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>2018-09-29 05:57</td>
-                                    <td>100398</td>
-                                    <td>iPhone X 64Gb Grey</td>
-                                    <td class="text-right">$999.00</td>
-                                    <td class="text-right">1</td>
-                                    <td class="text-right">$999.00</td>
-                                </tr>
-                                <tr>
-                                    <td>2018-09-28 01:22</td>
-                                    <td>100397</td>
-                                    <td>Samsung S8 Black</td>
-                                    <td class="text-right">$756.00</td>
-                                    <td class="text-right">1</td>
-                                    <td class="text-right">$756.00</td>
-                                </tr>
-                                <tr>
-                                    <td>2018-09-27 02:12</td>
-                                    <td>100396</td>
-                                    <td>Game Console Controller</td>
-                                    <td class="text-right">$22.00</td>
-                                    <td class="text-right">2</td>
-                                    <td class="text-right">$44.00</td>
-                                </tr>
-                                <tr>
-                                    <td>2018-09-26 23:06</td>
-                                    <td>100395</td>
-                                    <td>iPhone X 256Gb Black</td>
-                                    <td class="text-right">$1199.00</td>
-                                    <td class="text-right">1</td>
-                                    <td class="text-right">$1199.00</td>
-                                </tr>
-                                <tr>
-                                    <td>2018-09-25 19:03</td>
-                                    <td>100393</td>
-                                    <td>USB 3.0 Cable</td>
-                                    <td class="text-right">$10.00</td>
-                                    <td class="text-right">3</td>
-                                    <td class="text-right">$30.00</td>
-                                </tr>
-                                <tr>
-                                    <td>2018-09-29 05:57</td>
-                                    <td>100392</td>
-                                    <td>Smartwatch 4.0 LTE Wifi</td>
-                                    <td class="text-right">$199.00</td>
-                                    <td class="text-right">6</td>
-                                    <td class="text-right">$1494.00</td>
-                                </tr>
-                                <tr>
-                                    <td>2018-09-24 19:10</td>
-                                    <td>100391</td>
-                                    <td>Camera C430W 4k</td>
-                                    <td class="text-right">$699.00</td>
-                                    <td class="text-right">1</td>
-                                    <td class="text-right">$699.00</td>
-                                </tr>
-                                <tr>
-                                    <td>2018-09-22 00:43</td>
-                                    <td>100393</td>
-                                    <td>USB 3.0 Cable</td>
-                                    <td class="text-right">$10.00</td>
-                                    <td class="text-right">3</td>
-                                    <td class="text-right">$30.00</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div class="col-lg-12">
+                    <h3 class="title-5 m-b-35">Reciept</h3>
+                    <div class="table-data__tool">
+                        <div class="table-data__tool-left">
+                            <form method="post" asp-area="Admin" asp-controller="Table" asp-action="FilterOrder">
+                                <div class="rs-select2--light rs-select2--md">
+                                    <select class="js-select2" name="orderFilter">
+                                        <option selected="selected" value="0">All Properties</option>
+                                        <option value=1>This month</option>
+                                        <option value=3>3 months ago</option>
+                                    </select>
+                                    <div class="dropDownSelect2"></div>
+                                </div>
+                                <button type="submit" class="au-btn-filter">
+                                    <i class="zmdi zmdi-filter-list"></i>filters
+                                </button>
+                            </form>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="au-card au-card--bg-blue au-card-top-countries m-b-30">
-                        <div class="au-card-inner">
-                            <div class="table-responsive">
-                                <table class="table table-top-countries">
-                                    <tbody>
+                    <div class="table-responsive table--no-card m-b-30">
+                        <div style="height:600px;overflow-y:scroll; overflow-x:scroll">
+                            <table class="table table-borderless table-striped table-earning">
+                                <thead>
+                                    <tr>
+                                        <th>Customer</th>
+                                        <th>Order date</th>
+                                        <th>Send date</th>
+                                        <th>Place</th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
+                                        <th>Cost</th>
+                                        <th>State</th>
+                                        <th></th>
+                                        @*<th class="text-right">price</th>
+                                            <th class="text-right">quantity</th>
+                                            <th class="text-right">total</th>*@
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var order in listOrder)
+                                    {
                                         <tr>
-                                            <td>United States</td>
-                                            <td class="text-right">$119,366.96</td>
+                                            <td>@order.khachhangid</td>
+                                            <td>@order.ngaygiaodich</td>
+                                            <td>@order.ngaygiaohang</td>
+                                            <td>@order.diachigiaohang</td>
+                                            <td>@order.sdtlienlac</td>
+                                            <td>@order.emailLienLac</td>
+                                            <td>@order.giatridon</td>
+                                            <td>@order.trangthai</td>
+                                            <td>
+                                                @{
+                                                    var routeData = new Dictionary<string, string>();
+                                                    routeData["id"] = order.id + "";
+
+
+                                                }
+
+                                                <a class="item" data-toggle="tooltip" data-placement="top" title="EditOrder" asp-area="Admin" asp-controller="Table" asp-action="DisplayEditOrder" asp-all-route-data="@routeData">
+
+                                                    <i class="zmdi zmdi-edit"></i>
+
+                                                </a>
+                                            </td>
                                         </tr>
-                                        <tr>
-                                            <td>Australia</td>
-                                            <td class="text-right">$70,261.65</td>
-                                        </tr>
-                                        <tr>
-                                            <td>United Kingdom</td>
-                                            <td class="text-right">$46,399.22</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Turkey</td>
-                                            <td class="text-right">$35,364.90</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Germany</td>
-                                            <td class="text-right">$20,366.96</td>
-                                        </tr>
-                                        <tr>
-                                            <td>France</td>
-                                            <td class="text-right">$10,366.96</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Australia</td>
-                                            <td class="text-right">$5,366.96</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Italy</td>
-                                            <td class="text-right">$1639.32</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                                    }
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -143,183 +93,116 @@
                             <i class="zmdi zmdi-account-calendar"></i>user data
                         </h3>
                         <div class="filters m-b-45">
-                            <div class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border">
-                                <select class="js-select2" name="property">
-                                    <option selected="selected">All Properties</option>
-                                    <option value="">Products</option>
-                                    <option value="">Services</option>
-                                </select>
-                                <div class="dropDownSelect2"></div>
-                            </div>
-                            <div class="rs-select2--dark rs-select2--sm rs-select2--border">
-                                <select class="js-select2 au-select-dark" name="time">
-                                    <option selected="selected">All Time</option>
-                                    <option value="">By Month</option>
-                                    <option value="">By Day</option>
-                                </select>
-                                <div class="dropDownSelect2"></div>
-                            </div>
+                            <form method="post" asp-area="Admin" asp-controller="Table" asp-action="FilterUser">
+                                <div class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border">
+                                    <select class="js-select2" name="userFilter">
+                                        <option selected="selected" value=0>User Type</option>
+                                        <option value=1>Admin</option>
+                                        <option value=2>Normal User</option>
+                                    </select>
+                                    <div class="dropDownSelect2"></div>
+                                </div>
+                                <button type="submit" class="au-btn-filter">
+                                    <i class="zmdi zmdi-filter-list"></i>filters
+                                </button>
+                            </form>
+
                         </div>
                         <div class="table-responsive table-data">
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <td>
-                                            <label class="au-checkbox">
-                                                <input type="checkbox">
-                                                <span class="au-checkmark"></span>
-                                            </label>
+                                            User
                                         </td>
                                         <td>name</td>
                                         <td>role</td>
-                                        <td>type</td>
+
                                         <td></td>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <label class="au-checkbox">
-                                                <input type="checkbox">
-                                                <span class="au-checkmark"></span>
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <div class="table-data__info">
-                                                <h6>lori lynch</h6>
-                                                <span>
-                                                    <a href="#">johndoe@gmail.com</a>
-                                                </span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <span class="role admin">admin</span>
-                                        </td>
-                                        <td>
-                                            <div class="rs-select2--trans rs-select2--sm">
-                                                <select class="js-select2" name="property">
-                                                    <option selected="selected">Full Control</option>
-                                                    <option value="">Post</option>
-                                                    <option value="">Watch</option>
-                                                </select>
-                                                <div class="dropDownSelect2"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <span class="more">
-                                                <i class="zmdi zmdi-more"></i>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="au-checkbox">
-                                                <input type="checkbox" checked="checked">
-                                                <span class="au-checkmark"></span>
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <div class="table-data__info">
-                                                <h6>lori lynch</h6>
-                                                <span>
-                                                    <a href="#">johndoe@gmail.com</a>
-                                                </span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <span class="role user">user</span>
-                                        </td>
-                                        <td>
-                                            <div class="rs-select2--trans rs-select2--sm">
-                                                <select class="js-select2" name="property">
-                                                    <option value="">Full Control</option>
-                                                    <option value="" selected="selected">Post</option>
-                                                    <option value="">Watch</option>
-                                                </select>
-                                                <div class="dropDownSelect2"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <span class="more">
-                                                <i class="zmdi zmdi-more"></i>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="au-checkbox">
-                                                <input type="checkbox">
-                                                <span class="au-checkmark"></span>
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <div class="table-data__info">
-                                                <h6>lori lynch</h6>
-                                                <span>
-                                                    <a href="#">johndoe@gmail.com</a>
-                                                </span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <span class="role user">user</span>
-                                        </td>
-                                        <td>
-                                            <div class="rs-select2--trans rs-select2--sm">
-                                                <select class="js-select2" name="property">
-                                                    <option value="">Full Control</option>
-                                                    <option value="" selected="selected">Post</option>
-                                                    <option value="">Watch</option>
-                                                </select>
-                                                <div class="dropDownSelect2"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <span class="more">
-                                                <i class="zmdi zmdi-more"></i>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="au-checkbox">
-                                                <input type="checkbox">
-                                                <span class="au-checkmark"></span>
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <div class="table-data__info">
-                                                <h6>lori lynch</h6>
-                                                <span>
-                                                    <a href="#">johndoe@gmail.com</a>
-                                                </span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <span class="role member">member</span>
-                                        </td>
-                                        <td>
-                                            <div class="rs-select2--trans rs-select2--sm">
-                                                <select class="js-select2" name="property">
-                                                    <option selected="selected">Full Control</option>
-                                                    <option value="">Post</option>
-                                                    <option value="">Watch</option>
-                                                </select>
-                                                <div class="dropDownSelect2"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <span class="more">
-                                                <i class="zmdi zmdi-more"></i>
-                                            </span>
-                                        </td>
-                                    </tr>
+                                    @foreach (var user in listUser)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <div class="table-data__info">
+                                                    <h6>@user.taikhoan</h6>
+                                                    <span>
+                                                        <a href="#">@user.email</a>
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            @if (@user.roleTableid == 1)
+                                            {
+                                                <td>
+                                                    <span class="role admin">admin</span>
+                                                </td>
+                                            }
+                                            @if (@user.roleTableid == 2)
+                                            {
+                                                <td>
+                                                    <span class="role user">user</span>
+                                                </td>
+                                            }
+                                            @{
+                                                var routeData = new Dictionary<string, string>();
+                                                routeData["id"] = user.id + "";
+                                            }
+                                            @if (@user.roleTableid == 1)
+                                            {
+                                                <form method="post" asp-controller="Table" asp-action="ChangeRole" asp-all-route-data="@routeData">
+                                                    <td>
+
+                                                        <div class="rs-select2--trans rs-select2--sm">
+                                                            <select class="form-control-sm form-control" name="roleid">
+                                                                <option value=@user.roleTableid>Full Control</option>
+                                                                <option value=1>Full Control</option>
+                                                                <option value=2>Watch</option>
+                                                            </select>
+                                                        </div>
+                                                    </td><td>
+                                                        <input class="btn btn-success" type="submit" value="OK" />
+
+                                                    </td>
+                                                </form>
+                                            }
+                                            @if (@user.roleTableid == 2)
+                                            {
+                                                <form method="post" asp-controller="Table" asp-action="ChangeRole" asp-all-route-data="@routeData">
+                                                    <td>
+
+                                                        <div class="rs-select2--trans rs-select2--sm">
+                                                            <select class="form-control-sm form-control" name="roleid">
+                                                                <option value=@user.roleTableid>Watch</option>
+                                                                <option value=1>Full Control</option>
+                                                                <option value=2>Watch</option>
+                                                            </select>
+                                                        </div>
+                                                    </td><td>
+                                                        <input class="btn btn-success" type="submit" value="OK" />
+
+                                                    </td>
+                                                </form>
+                                            }
+
+                                            @*<td>
+                                                    <span class="more">
+                                                        <a name="ChangeRole" asp-area="Admin" asp-controller="Table" asp-action="ChangeRole" asp-all-route-data="@routeData">
+                                                            <i type="button" class="btn btn-success">OK</i>
+                                                        </a>
+                                                    </span>
+                                                </td>*@
+
+                                        </tr>
+
+                                    }
                                 </tbody>
                             </table>
                         </div>
-                        <div class="user-data__footer">
-                            <button class="au-btn au-btn-load">load more</button>
-                        </div>
+
                     </div>
+
                     <!-- END USER DATA-->
                 </div>
                 <div class="col-lg-6">
@@ -390,38 +273,25 @@
                     <h3 class="title-5 m-b-35">Product table</h3>
                     <div class="table-data__tool">
                         <div class="table-data__tool-left">
-                            <div class="rs-select2--light rs-select2--md">
-                                <select class="js-select2" name="property">
-                                    <option selected="selected">All Properties</option>
-                                    <option value="">Option 1</option>
-                                    <option value="">Option 2</option>
-                                </select>
-                                <div class="dropDownSelect2"></div>
-                            </div>
-                            <div class="rs-select2--light rs-select2--sm">
-                                <select class="js-select2" name="time">
-                                    <option selected="selected">Today</option>
-                                    <option value="">3 Days</option>
-                                    <option value="">1 Week</option>
-                                </select>
-                                <div class="dropDownSelect2"></div>
-                            </div>
-                            <button class="au-btn-filter">
-                                <i class="zmdi zmdi-filter-list"></i>filters
-                            </button>
+                            <form method="post" asp-area="Admin" asp-controller="Home" asp-action="FilterProduct">
+                                <div class="rs-select2--light rs-select2--md">
+                                    <select class="js-select2" name="productFilter">
+                                        <option selected="selected">All Properties</option>
+                                        <option value="Phone">Smartphone</option>
+                                        <option value="Tablet">Tablet</option>
+                                        <option value="Headphone">Headphone</option>
+                                    </select>
+                                    <div class="dropDownSelect2"></div>
+                                </div>
+                                <button class="au-btn-filter">
+                                    <i class="zmdi zmdi-filter-list"></i>filters
+                                </button>
+                            </form>
                         </div>
                         <div class="table-data__tool-right">
-                            <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                            <a class="au-btn au-btn-icon au-btn--green au-btn--small" asp-area="Admin" asp-controller="Home" asp-action="AddItem">
                                 <i class="zmdi zmdi-plus"></i>add item
-                            </button>
-                            <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
-                                <select class="js-select2" name="type">
-                                    <option selected="selected">Export</option>
-                                    <option value="">Option 1</option>
-                                    <option value="">Option 2</option>
-                                </select>
-                                <div class="dropDownSelect2"></div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                     <div class="table-responsive m-b-40">
@@ -471,18 +341,19 @@
                                                         var routeData = new Dictionary<string, string>();
                                                         routeData["id"] = item.id + "";
 
+
                                                     }
-                                                    <a class="item" asp-area="Admin" asp-controller="Form" asp-action="Send" asp-all-route-data="@routeData">
-                                                        <i class="zmdi zmdi-mail-send"></i>
+
+                                                    <a class="item" data-toggle="tooltip" data-placement="top" title="Edit" asp-area="Admin" asp-controller="Table" asp-action="DisplayEditItem" asp-all-route-data="@routeData">
+
+                                                        <i class="zmdi zmdi-edit"></i>
+
                                                     </a>
 
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                        <i class="zmdi zmdi-edit"></i>
-                                                    </button>
-
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                    <a class="item" data-toggle="tooltip" data-placement="top" title="Delete" asp-area="Admin" asp-controller="Table" asp-action="DeleteItem" asp-all-route-data="@routeData">
                                                         <i class="zmdi zmdi-delete"></i>
-                                                    </button>
+                                                    </a>
+
                                                     <button class="item" data-toggle="tooltip" data-placement="top" title="More">
                                                         <i class="zmdi zmdi-more"></i>
                                                     </button>
@@ -490,6 +361,7 @@
                                             </td>
                                         </tr>
                                         <tr class="spacer"></tr>
+
                                     }
                                 </tbody>
                             </table>
@@ -497,22 +369,6 @@
                         <!-- END DATA TABLE -->
                     </div>
                 </div>
-
-                <form method="post" enctype="multipart/form-data" asp-controller="Table" asp-action="Tab">
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            <p>Upload one or more files using this form:</p>
-                            <input type="file" name="files" multiple />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            <input type="submit" value="Upload" />
-                        </div>
-                    </div>
-                </form>
-
-
                 <div class="row">
                     <div class="col-md-12">
                         <div class="copyright">

@@ -15,7 +15,7 @@ namespace Project.Models.DAO
 
     public partial class danhgia
     {
-        [Key]
+      
         public int id { get; set; }
         public virtual khachhang khachhang { get; set; }
         public virtual sanpham sanpham { get; set; }
