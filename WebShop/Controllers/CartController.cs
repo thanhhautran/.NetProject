@@ -29,7 +29,6 @@ namespace WebShop.Controllers
             ProductDAO pd = new ProductDAO();
             if (SessionHelper.GetObjectFromJson<List<chitietdonhang>>(HttpContext.Session, "cart") == null)
             {
-                //List<chitietdonhang> cart = new List<chitietdonhang>();
                 List<giohang> cart = new List<giohang>();
                 sanpham sp = pd.findProductById(id);
                 giohang gh = new giohang();
@@ -40,7 +39,6 @@ namespace WebShop.Controllers
             }
             else
             {
-                //List<chitietdonhang> cart = SessionHelper.GetObjectFromJson<List<chitietdonhang>>(HttpContext.Session, "cart");
                 List<giohang> cart = SessionHelper.GetObjectFromJson<List<giohang>>(HttpContext.Session, "cart");
                 int isExist = InShoppingCart(id);
                 if (isExist != -1)
@@ -61,7 +59,6 @@ namespace WebShop.Controllers
         }
         public IActionResult Delete(String id)
         {
-            //List<chitietdonhang> cart = SessionHelper.GetObjectFromJson<List<chitietdonhang>>(HttpContext.Session, "cart");
             List<giohang> cart = SessionHelper.GetObjectFromJson<List<giohang>>(HttpContext.Session, "cart");
             int index = InShoppingCart(id);
             cart.RemoveAt(index);
@@ -119,12 +116,12 @@ namespace WebShop.Controllers
                 };
                 pd.writeDetailReceipt(ctdh);
             }
+            new MailHelper().sendMail(user.email,"","");
             return View();
         }
         public int InShoppingCart(String id)
         {
            int idnum  =  Int32.Parse(id);
-            //List<chitietdonhang> cart = SessionHelper.GetObjectFromJson<List<chitietdonhang>>(HttpContext.Session, "cart");
             List<giohang> cart = SessionHelper.GetObjectFromJson<List<giohang>>(HttpContext.Session, "cart");
             for (int i = 0; i < cart.Count; i++)
             {

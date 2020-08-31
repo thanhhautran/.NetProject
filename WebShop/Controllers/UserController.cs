@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using WebShop.Helpers;
 using System.Security.Cryptography;
 using System.Text;
+using Microsoft.AspNetCore.Identity;
 
 namespace ProjectCore.Controllers
 {
@@ -108,6 +109,25 @@ namespace ProjectCore.Controllers
         {
             HttpContext.Session.Remove("User_Session");
             return Redirect("/");
+        }
+        [HttpGet]
+        public IActionResult viewForgotPassword()
+        {
+            return View("ForgotPassword");
+        }
+        [HttpPost]
+        public IActionResult forgotPassword(string username)
+        {
+            UserDAO ud = new UserDAO();
+            var user = ud.GetById(username);
+            var data = new byte[6];
+            RandomNumberGenerator rng = RandomNumberGenerator.Create();
+            rng.GetBytes(data);
+            string body = "mat khau moi cua ban la:" + data.ToString() + "hoac truy cap vao duong link sau de lay lai mat khau:";
+            var emailString = user.email;
+            new MailHelper().sendMail(emailString,"Quen mat khau",body);
+            ud.updatePassword(user.taikhoan, data.ToString());
+            return View("Login");
         }
         public string encryption(string password)
         {

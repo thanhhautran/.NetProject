@@ -23,6 +23,15 @@ namespace ProjectCore.Models.DAO
         {
             return pt.Khachhang.Count(x => x.taikhoan == userName) > 0;
         }
+        public void updatePassword(string username,string password)
+        {
+            var kh = pt.Khachhang.SingleOrDefault(x => x.taikhoan == username);
+            if (kh != null)
+            {
+                kh.matkhau = password;
+                pt.SaveChanges();
+            }
+        }
         public int insertUser(khachhang kh)
         {
             pt.Khachhang.Add(kh);
