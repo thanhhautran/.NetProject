@@ -289,8 +289,6 @@ D:\projectWeb\Web_MobileShop\.NetProject\WebShop\bin\Debug\netcoreapp3.1\runtime
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\bin\Debug\netcoreapp3.1\Model.dll
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\bin\Debug\netcoreapp3.1\Model.pdb
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\WebShop.csprojAssemblyReference.cache
-D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\WebShop.csproj.CoreCompileInputs.cache
-D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\WebShop.MvcApplicationPartsAssemblyInfo.cache
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\WebShop.RazorAssemblyInfo.cache
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\WebShop.RazorAssemblyInfo.cs
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\WebShop.AssemblyInfoInputs.cache
@@ -547,3 +545,8 @@ D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\A
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Views\Shop\shop.cshtml.g.cs
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Views\Cart\checkOutSuccess.cshtml.g.cs
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Views\User\ForgotPassword.cshtml.g.cs
+D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Views\User\ConfirmMail.cshtml.g.cs
+D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\WebShop.csproj.CoreCompileInputs.cache
+D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\WebShop.MvcApplicationPartsAssemblyInfo.cache
+D:\projectWeb\Web_MobileShop\.NetProject\WebShop\bin\Debug\netcoreapp3.1\Facebook.dll
+D:\projectWeb\Web_MobileShop\.NetProject\WebShop\bin\Debug\netcoreapp3.1\ASPSnippets.GoogleAPI.dll

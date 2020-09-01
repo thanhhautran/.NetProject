@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "t0s/4ABXTpd/nirI/xHr8wOPenO/MsqndFqdpKjyISH8+Hfblrq+zchaL7ld0qPfkZd7qfoNQ6CmM6knqTG3ow==",
+  "dgSpecHash": "oLhcVVFMv/hhTgHFbARczLDpyXuUz+eHqUdwik8MgiS+I1UABu1CjNRXmWqww4qbdfxz8gO8mf8TQflHOWnIwA==",
   "success": true,
   "projectFilePath": "D:\\projectWeb\\Web_MobileShop\\.NetProject\\WebShop\\WebShop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jackg\\.nuget\\packages\\bouncycastle.netcore\\1.8.3\\bouncycastle.netcore.1.8.3.nupkg.sha512",
     "C:\\Users\\jackg\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
+    "C:\\Users\\jackg\\.nuget\\packages\\facebook\\7.0.6\\facebook.7.0.6.nupkg.sha512",
     "C:\\Users\\jackg\\.nuget\\packages\\google.protobuf\\3.6.1\\google.protobuf.3.6.1.nupkg.sha512",
     "C:\\Users\\jackg\\.nuget\\packages\\k4os.compression.lz4\\1.1.11\\k4os.compression.lz4.1.1.11.nupkg.sha512",
     "C:\\Users\\jackg\\.nuget\\packages\\k4os.compression.lz4.streams\\1.1.11\\k4os.compression.lz4.streams.1.1.11.nupkg.sha512",
@@ -174,5 +175,16 @@
     "C:\\Users\\jackg\\.nuget\\packages\\system.xml.xpath\\4.0.1\\system.xml.xpath.4.0.1.nupkg.sha512",
     "C:\\Users\\jackg\\.nuget\\packages\\system.xml.xpath.xmldocument\\4.0.1\\system.xml.xpath.xmldocument.4.0.1.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Facebook 7.0.6' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Facebook",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

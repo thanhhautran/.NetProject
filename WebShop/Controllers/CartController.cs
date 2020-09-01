@@ -21,6 +21,11 @@ namespace WebShop.Controllers
         public IActionResult Index()
         {
             var cart = SessionHelper.GetObjectFromJson<List<chitietdonhang>>(HttpContext.Session, "cart");
+            if (cart == null)
+            {
+                List<giohang> cart1 = new List<giohang>();
+                SessionHelper.setObjectAsJson(HttpContext.Session, "cart", cart1);
+            }
             ViewBag.cart = cart;
             return View("Cart");
         }

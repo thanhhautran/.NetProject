@@ -25,6 +25,7 @@
       "WebShop/1.0.0": {
         "dependencies": {
           "EntityFramework": "6.4.4",
+          "Facebook": "7.0.6",
           "Microsoft.AspNetCore.Session": "2.2.0",
           "Microsoft.EntityFrameworkCore": "3.1.7",
           "Microsoft.Extensions.Caching.Memory": "3.1.7",
@@ -33,6 +34,7 @@
           "MySql.Data.EntityFrameworkCore": "8.0.21",
           "MySqlConnector": "1.0.1",
           "Newtonsoft.Json": "12.0.3",
+          "ASPSnippets.GoogleAPI": "2.0.1.1",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -347,6 +349,17 @@
         "compile": {
           "lib/netstandard2.1/EntityFramework.SqlServer.dll": {},
           "lib/netstandard2.1/EntityFramework.dll": {}
+        }
+      },
+      "Facebook/7.0.6": {
+        "runtime": {
+          "lib/net45/Facebook.dll": {
+            "assemblyVersion": "6.0.10.0",
+            "fileVersion": "7.0.6.0"
+          }
+        },
+        "compile": {
+          "lib/net45/Facebook.dll": {}
         }
       },
       "Google.Protobuf/3.6.1": {
@@ -2269,6 +2282,17 @@
           "Model.dll": {}
         }
       },
+      "ASPSnippets.GoogleAPI/2.0.1.1": {
+        "runtime": {
+          "ASPSnippets.GoogleAPI.dll": {
+            "assemblyVersion": "2.0.1.1",
+            "fileVersion": "2.0.1.1"
+          }
+        },
+        "compile": {
+          "ASPSnippets.GoogleAPI.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Antiforgery.dll": {}
@@ -3905,6 +3929,13 @@
       "path": "entityframework/6.4.4",
       "hashPath": "entityframework.6.4.4.nupkg.sha512"
     },
+    "Facebook/7.0.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-D9nlWZb88S4U+eh1pUDQ+AkSkiht6m0eFpxKFddZnQSSFTnncvDMBEnNODy4fOIOjWQIiOXRVbuY04jCPyWqkw==",
+      "path": "facebook/7.0.6",
+      "hashPath": "facebook.7.0.6.nupkg.sha512"
+    },
     "Google.Protobuf/3.6.1": {
       "type": "package",
       "serviceable": true,
@@ -5076,6 +5107,11 @@
     },
     "Model/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ASPSnippets.GoogleAPI/2.0.1.1": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     },

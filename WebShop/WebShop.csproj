@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="Facebook" Version="7.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.7" />
@@ -228,6 +229,12 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Image\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ASPSnippets.GoogleAPI">
+      <HintPath>..\..\..\..\Bin\ASPSnippets.GoogleAPI.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
