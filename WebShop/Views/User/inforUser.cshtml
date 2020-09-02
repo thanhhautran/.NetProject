@@ -1,7 +1,8 @@
 ﻿
 @{
-    ViewData["Title"] = "ConfirmMail";
+    ViewData["Title"] = "inforUser";
 }
+@model WebShop.Models.changeInforModel
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,8 +32,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col d-flex flex-row">
-                            <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/phone.png" alt=""></div>+38 068 005 3570</div>
-                            <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/mail.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
+                            <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="~/images/phone.png" alt=""></div>+38 068 005 3570</div>
+                            <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="~/images/mail.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
                             <div class="top_bar_content ml-auto">
                                 <div class="top_bar_menu">
                                     <ul class="standard_dropdown top_bar_dropdown">
@@ -55,7 +56,7 @@
                                     </ul>
                                 </div>
                                 <div class="top_bar_user">
-                                    <div class="user_icon"><img src="images/user.svg" alt=""></div>
+                                    <div class="user_icon"><img src="~/images/user.svg" alt=""></div>
                                     <div><a href="#">Register</a></div>
                                     <div><a href="#">Sign in</a></div>
                                 </div>
@@ -99,7 +100,7 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <button type="submit" class="header_search_button trans_300" value="Submit"><img src="images/search.png" alt=""></button>
+                                            <button type="submit" class="header_search_button trans_300" value="Submit"><img src="~/images/search.png" alt=""></button>
                                         </form>
                                     </div>
                                 </div>
@@ -110,7 +111,7 @@
                         <div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
                             <div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
                                 <div class="wishlist d-flex flex-row align-items-center justify-content-end">
-                                    <div class="wishlist_icon"><img src="images/heart.png" alt=""></div>
+                                    <div class="wishlist_icon"><img src="~/images/heart.png" alt=""></div>
                                     <div class="wishlist_content">
                                         <div class="wishlist_text"><a href="#">Wishlist</a></div>
                                         <div class="wishlist_count">115</div>
@@ -121,7 +122,7 @@
                                 <div class="cart">
                                     <div class="cart_container d-flex flex-row align-items-center justify-content-end">
                                         <div class="cart_icon">
-                                            <img src="images/cart.png" alt="">
+                                            <img src="~/images/cart.png" alt="">
                                             <div class="cart_count"><span>10</span></div>
                                         </div>
                                         <div class="cart_content">
@@ -330,8 +331,8 @@
                                 </ul>
 
                                 <div class="menu_contact">
-                                    <div class="menu_contact_item"><div class="menu_contact_icon"><img src="images/phone_white.png" alt=""></div>+38 068 005 3570</div>
-                                    <div class="menu_contact_item"><div class="menu_contact_icon"><img src="images/mail_white.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
+                                    <div class="menu_contact_item"><div class="menu_contact_icon"><img src="~/images/phone_white.png" alt=""></div>+38 068 005 3570</div>
+                                    <div class="menu_contact_item"><div class="menu_contact_icon"><img src="~/images/mail_white.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
                                 </div>
                             </div>
                         </div>
@@ -341,6 +342,46 @@
 
         </header>
 
+        <!-- Contact Info -->
+
+        <div class="contact_info">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 offset-lg-1">
+                        <div class="contact_info_container d-flex flex-lg-row flex-column justify-content-between align-items-between">
+
+
+                            <!-- Contact Item -->
+                            <div class="contact_info_item d-flex flex-row align-items-center justify-content-start">
+
+                                <div class="contact_info_image"><a asp-controller="Cart" asp-action="showReceipt"><img src="~/images/char_1.png" alt=""></a></div>
+                                <div class="contact_info_content">
+                                    <div class="contact_info_title">Đơn hàng đang Xử lý</div>
+                                </div>
+                            </div>
+
+                            <!-- Contact Item -->
+                            <div class="contact_info_item d-flex flex-row align-items-center justify-content-start">
+                                <div class="contact_info_image"><a asp-controller="Cart" asp-action="showHasCancel"><img src="~/images/char_2.png" alt=""></a></div>
+                                <div class="contact_info_content">
+                                    <div class="contact_info_title">Đơn hàng đã hủy</div>
+
+                                </div>
+                            </div>
+
+                            <!-- Contact Item -->
+                            <div class="contact_info_item d-flex flex-row align-items-center justify-content-start">
+                                <div class="contact_info_image"><a asp-controller="Cart" asp-action="showHasSent"><img src="~/images/char_3.png" alt=""></a></div>
+                                <div class="contact_info_content">
+                                    <div class="contact_info_title">Đơn hàng đã thanh toán</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Contact Form -->
 
         <div class="contact_form">
@@ -348,16 +389,28 @@
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <div class="contact_form_container">
-                            <div class="contact_form_title">Nhập mã xác nhận</div>
-
-                            <form asp-controller="User" asp-action="InsertUser" method="post" id="contact_form">
+                            <div class="contact_form_title">Thông tin khách hàng</div>
+                            @{
+                                var user = ViewBag.user;
+                            } 
+                            <form asp-controller="User" asp-action="ChangeUserInfor" method="post" id="contact_form">
                                 <div class="contact_form_inputs d-flex flex-md-row flex-column justify-content-between align-items-between">
-                                    <input type="text" name="mailConfirm" id="contact_form_phone" class="contact_form_phone input_field" placeholder="Nhập username">
-                                    <input type="hidden" name="khachhangInfor" value="@ViewBag.stringUser">
-                                    <input type="hidden" name="ranString" value="@ViewBag.ranString">
+                                    <input type="hidden" name="id" value="@user.id">
+                                    <input type="text" id="contact_form_name" class="contact_form_name input_field" name="sdt" value="@user.sdt" >
+                                    <input type="text" id="contact_form_email" class="contact_form_email input_field" name="email" value="@user.email">
+                                    <input type="text" id="contact_form_phone" class="contact_form_phone input_field" name="diachi" value="@user.diachi">
+                                </div>
+                                <div class="contact_form_inputs d-flex flex-md-row flex-column justify-content-between align-items-between">
+                                    <input type="text" id="contact_form_name" class="contact_form_name input_field" name="hoten" value="@user.hoten " >
                                 </div>
                                 <div class="contact_form_button">
-                                    <button type="submit" class="button contact_submit_button">Xác nhận</button>
+                                    <button type="submit" class="button contact_submit_button">Thay đổi thông tin</button>
+                                </div>
+                            </form>
+                            <form asp-controller="User" asp-action="ChangePassword" method="get" id="contact_form">
+                                <input type="hidden" name="taikhoan" value="@user.taikhoan">
+                                <div class="contact_form_button">
+                                    <button type="submit" class="button contact_submit_button">Thay đổi mật khẩu</button>
                                 </div>
                             </form>
 
@@ -367,7 +420,6 @@
             </div>
             <div class="panel"></div>
         </div>
-
         <!-- Footer -->
 
         <footer class="footer">
@@ -461,10 +513,10 @@
                             </div>
                             <div class="logos ml-sm-auto">
                                 <ul class="logos_list">
-                                    <li><a href="#"><img src="images/logos_1.png" alt=""></a></li>
-                                    <li><a href="#"><img src="images/logos_2.png" alt=""></a></li>
-                                    <li><a href="#"><img src="images/logos_3.png" alt=""></a></li>
-                                    <li><a href="#"><img src="images/logos_4.png" alt=""></a></li>
+                                    <li><a href="#"><img src="~/images/logos_1.png" alt=""></a></li>
+                                    <li><a href="#"><img src="~/images/logos_2.png" alt=""></a></li>
+                                    <li><a href="#"><img src="~/images/logos_3.png" alt=""></a></li>
+                                    <li><a href="#"><img src="~/images/logos_4.png" alt=""></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -487,4 +539,3 @@
 </body>
 
 </html>
-

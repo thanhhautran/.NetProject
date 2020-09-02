@@ -19,6 +19,10 @@ namespace ProjectCore.Models.DAO
         {
             return pt.Khachhang.SingleOrDefault(x => x.taikhoan == userName);
         }
+        public khachhang getUser(int id)
+        {
+            return pt.Khachhang.SingleOrDefault(x => x.id == id);
+        }
         public Boolean isExistsUser(String userName)
         {
             return pt.Khachhang.Count(x => x.taikhoan == userName) > 0;
@@ -29,6 +33,18 @@ namespace ProjectCore.Models.DAO
             if (kh != null)
             {
                 kh.matkhau = password;
+                pt.SaveChanges();
+            }
+        }
+        public void updatePersonalInfor(int id,string sdt,string email,string diachi,string hoten)
+        {
+            var kh = pt.Khachhang.SingleOrDefault(x => x.id == id);
+            if (kh != null)
+            {
+                kh.email = email;
+                kh.sdt = sdt;
+                kh.diachi = diachi;
+                kh.hoten = hoten;
                 pt.SaveChanges();
             }
         }

@@ -80,7 +80,48 @@ namespace ProjectCore.Controllers
             }
             return View(model);
         }
-       
+        [HttpGet]
+        public ActionResult showUserInfor()
+        {
+            var user = SessionHelper.GetObjectFromJson<khachhang>(HttpContext.Session, "User_Session");
+            ViewBag.user = user;
+            return View("inforUser");
+        }
+        [HttpGet]
+        public ActionResult ChangePassword()
+        {
+            var user = SessionHelper.GetObjectFromJson<khachhang>(HttpContext.Session, "User_Session");
+            ViewBag.user = user;
+            return View("ConfirmPassword");
+        }
+        [HttpPost]
+        public ActionResult ConfirmPassword(ChangePasswordModel model,string taikhoan)
+        {
+            if (ModelState.IsValid)
+            {
+                var ud = new UserDAO();
+                string mk = model.matkhau;
+                ud.updatePassword(taikhoan, encryption(mk));
+                return View("Login");
+            }
+            var user = SessionHelper.GetObjectFromJson<khachhang>(HttpContext.Session, "User_Session");
+            ViewBag.user = user;
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult ChangeUserInfor(changeInforModel model,string id)
+        {
+            if (ModelState.IsValid)
+            {
+                int numid = Int32.Parse(id);
+                var ud = new UserDAO();
+                ud.updatePersonalInfor(numid, model.sdt, model.email, model.diachi, model.hoten);
+                var kh = ud.getUser(numid);
+                SessionHelper.setObjectAsJson(HttpContext.Session, "User_Session", kh);
+                return RedirectToAction("showUserInfor");
+            }
+            return RedirectToAction("showUserInfor");
+        }
         [HttpGet]
         public ActionResult LoginFacebook()
         {
@@ -182,8 +223,6 @@ namespace ProjectCore.Controllers
                 }
 
             }
-            var userSess = SessionHelper.GetObjectFromJson<khachhang>(HttpContext.Session, "User_Session");
-            ViewBag.userSess = userSess;
             return View(model);
         }
         [HttpGet]

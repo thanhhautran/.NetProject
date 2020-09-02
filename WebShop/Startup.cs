@@ -81,6 +81,9 @@ namespace WebShop
                 endpoints.MapControllerRoute(
                     name: "Cart",
                     pattern: "{controller=Cart}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(
+                   name: "checkout",
+                   pattern: "{controller=Cart}/{action=ComputeCheckOut}/{id?}");
             });
             app.UseEndpoints(endpoints =>
             {

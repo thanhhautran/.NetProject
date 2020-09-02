@@ -550,3 +550,7 @@ D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\WebShop
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\WebShop.MvcApplicationPartsAssemblyInfo.cache
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\bin\Debug\netcoreapp3.1\Facebook.dll
 D:\projectWeb\Web_MobileShop\.NetProject\WebShop\bin\Debug\netcoreapp3.1\ASPSnippets.GoogleAPI.dll
+D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Views\Cart\showListReceipt.cshtml.g.cs
+D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Views\User\ConfirmPassword.cshtml.g.cs
+D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Views\User\inforUser.cshtml.g.cs
+D:\projectWeb\Web_MobileShop\.NetProject\WebShop\obj\Debug\netcoreapp3.1\Razor\Views\Cart\ComputeCheckOut.cshtml.g.cs

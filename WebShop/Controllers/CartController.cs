@@ -70,6 +70,33 @@ namespace WebShop.Controllers
             SessionHelper.setObjectAsJson(HttpContext.Session, "cart", cart);
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public IActionResult showHasSent()
+        {
+            var user = SessionHelper.GetObjectFromJson<khachhang>(HttpContext.Session, "User_Session");
+            CartDAO cd = new CartDAO();
+            var listReceipt = cd.listReceiptHasSent(user.id);
+            ViewBag.listReceiptHasSent = listReceipt;
+            return View("showListReceipt");
+        }
+        [HttpGet]
+        public IActionResult showHasCancel()
+        {
+            var user = SessionHelper.GetObjectFromJson<khachhang>(HttpContext.Session, "User_Session");
+            CartDAO cd = new CartDAO();
+            var listReceipt = cd.listReceiptHasCancel(user.id);
+            ViewBag.listReceiptCancel = listReceipt;
+            return View("showListReceipt");
+        }
+        [HttpGet]
+        public IActionResult showReceipt()
+        {
+            var user = SessionHelper.GetObjectFromJson<khachhang>(HttpContext.Session, "User_Session");
+            CartDAO cd = new CartDAO();
+            var listReceipt = cd.listReceipt(user.id);
+            ViewBag.listReceipt = listReceipt;
+            return View("showListReceipt");
+        }
         [HttpPost]
         public IActionResult DeleteAll()
         {
@@ -122,7 +149,7 @@ namespace WebShop.Controllers
                 pd.writeDetailReceipt(ctdh);
             }
             new MailHelper().sendMail(user.email,"","");
-            return View();
+            return View("checkOutSuccess");
         }
         public int InShoppingCart(String id)
         {

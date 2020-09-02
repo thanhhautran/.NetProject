@@ -60,15 +60,14 @@
                                     <div class="user_icon"><img src="images/user.svg" alt=""></div>
                                     @if (Context.Session.GetString("User_Session") == null)
                                     {
-                                        <div><a asp-controller="User" asp-action="Register">Register</a></div>
+                                        <div><a asp-controller="User" asp-action="Register">Đăng ký</a></div>
 
-                                        <div><a asp-controller="User" asp-action="Login">Sign in</a></div>
+                                        <div><a asp-controller="User" asp-action="Login">Đăng nhập</a></div>
                                     }
                                     else
                                     {
-                                        <div><a asp-controller="User" asp-action="Logout">Log out</a></div>
-                                        var userSess = ViewBag.userSess;
-                                        <div><a href="#"> welcome userSess.taikhoan</a></div>
+                                        <div><a asp-controller="User" asp-action="Logout">Đăng xuất</a></div>
+                                        <div><a asp-controller="User" asp-action="showUserInfor"> Thông tin khách hàng </a></div>
                                     }
                                 </div>
                             </div>

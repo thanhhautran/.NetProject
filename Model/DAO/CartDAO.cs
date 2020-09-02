@@ -4,6 +4,7 @@ using Project.Models.DAO;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Text;
 
 namespace ProjectCore.Models.DAO
@@ -14,6 +15,21 @@ namespace ProjectCore.Models.DAO
         public CartDAO()
         {
             pt = new ProjectContext();
+        }
+        public List<donhang> listReceiptHasCancel(int idkh)
+        {
+            var a = pt.DonHang.Where<donhang>(d => d.trangthai == "Cancel" && d.khachhangid == idkh);
+            return a.ToList();
+        }
+        public List<donhang> listReceiptHasSent(int idkh)
+        {
+            var a = pt.DonHang.Where<donhang>(d => d.trangthai == "Sent" && d.khachhangid == idkh);
+            return a.ToList();
+        }
+        public List<donhang> listReceipt(int idkh)
+        {
+            var a = pt.DonHang.Where<donhang>(d => d.trangthai != "Sent" && d.trangthai == "Cancel" && d.khachhangid == idkh);
+            return a.ToList();
         }
         public void writeDetailReceipt(chitietdonhang ctdh)
         {
