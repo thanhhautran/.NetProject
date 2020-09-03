@@ -1,0 +1,11 @@
+D:\Temp\NetProject-master (1)\.NetProject-master\Model\bin\Debug\netcoreapp3.1\Model.deps.json
+D:\Temp\NetProject-master (1)\.NetProject-master\Model\bin\Debug\netcoreapp3.1\Model.runtimeconfig.json
+D:\Temp\NetProject-master (1)\.NetProject-master\Model\bin\Debug\netcoreapp3.1\Model.runtimeconfig.dev.json
+D:\Temp\NetProject-master (1)\.NetProject-master\Model\bin\Debug\netcoreapp3.1\Model.dll
+D:\Temp\NetProject-master (1)\.NetProject-master\Model\bin\Debug\netcoreapp3.1\Model.pdb
+D:\Temp\NetProject-master (1)\.NetProject-master\Model\obj\Debug\netcoreapp3.1\Model.AssemblyInfoInputs.cache
+D:\Temp\NetProject-master (1)\.NetProject-master\Model\obj\Debug\netcoreapp3.1\Model.AssemblyInfo.cs
+D:\Temp\NetProject-master (1)\.NetProject-master\Model\obj\Debug\netcoreapp3.1\Model.csproj.CoreCompileInputs.cache
+D:\Temp\NetProject-master (1)\.NetProject-master\Model\obj\Debug\netcoreapp3.1\Model.dll
+D:\Temp\NetProject-master (1)\.NetProject-master\Model\obj\Debug\netcoreapp3.1\Model.pdb
+D:\Temp\NetProject-master (1)\.NetProject-master\Model\obj\Debug\netcoreapp3.1\Model.genruntimeconfig.cache
