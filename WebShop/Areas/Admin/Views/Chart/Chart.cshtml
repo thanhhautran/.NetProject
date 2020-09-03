@@ -1,0 +1,127 @@
+﻿@{
+    ViewBag.Title = "Chart";
+    Layout = "~/Areas/Admin/Views/Shared/_MasterLayout.cshtml";
+
+    var pie = ViewBag.PieChart;
+
+}
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="au-card m-b-30">
+                        <div class="au-card-inner">
+                            <h3 class="title-2 m-b-40">Monthly Sales</h3>
+                            <canvas id="line-chart" width="800" height="450"></canvas>
+                            <script>
+                                new Chart(document.getElementById("line-chart"), {
+                                    type: 'line',
+                                    data: {
+                                        labels: ["January", "Ferbuary", "Match", "April", "May", "June", "July", "August", "September","October", "November", "December"],
+                                        datasets: [{
+                                            data:  @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.LineDataPhone)),
+                                            label: "Smartphone",
+                                            borderColor: "#3e95cd",
+                                            fill: false
+                                        }, {
+                                            data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.LineDataTablet)),
+                                            label: "Tablet",
+                                            borderColor: "#8e5ea2",
+                                            fill: false
+                                        }, {
+                                            data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.LineDataHeadphone)),
+                                            label: "Headphone",
+                                            borderColor: "#3cba9f",
+                                            fill: false
+                                        }, 
+                                        ]
+                                    },
+                                    options: {
+                                        title: {
+                                            display: true,
+                                            text: 'Monthly Sales'
+                                        }
+                                    }
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="au-card m-b-30">
+                        <div class="au-card-inner">
+                            <h3 class="title-2 m-b-40">Sales By Quarters</h3>
+                            <canvas id="pie-chart" width="500" height="400"></canvas>
+                            <script>
+
+
+                                // Pie chart
+                                new Chart(document.getElementById("pie-chart"), {
+                                    type: 'pie',
+                                    data: {
+                                        labels: ["1", "2", "3", "4"],
+                                        datasets: [{
+                                            label: "Receipts",
+                                            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9"],
+                                            data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(pie))
+                                        }]
+                                    },
+                                    options: {
+                                        title: {
+                                            display: true,
+                                            text: 'The whole Turnover of @ViewBag.YearNow'
+                                        }
+                                    }
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="au-card m-b-30">
+                        <div class="au-card-inner">
+                            <h3 class="title-2 m-b-40">Product Type</h3>
+                            <canvas id="radar-chart" width="500" height="400"></canvas>
+                            <script>
+                                    //Radar chart
+                                new Chart(document.getElementById("radar-chart"), {
+                                    type: 'radar',
+                                    data: {
+                                        labels:  @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.productLabel)),
+                                        datasets: [
+                                            {
+                                                label: 'Products',
+                                                fill: true,
+                                                backgroundColor: "rgba(255,99,132,0.2)",
+                                                borderColor: "rgba(255,99,132,1)",
+                                                pointBorderColor: "#fff",
+                                                pointBackgroundColor: "rgba(255,99,132,1)",
+                                                pointBorderColor: "#fff",
+                                                data:  @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.RadarData))
+                                            }
+                                        ]
+                                    },
+                                    options: {
+                                        title: {
+                                            display: true,
+                                            text: 'Type of all Product'
+                                        }
+                                    }
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="copyright">
+                            <p>Copyright © 2020 Creepy. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
