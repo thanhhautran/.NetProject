@@ -1,7 +1,11 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_MasterLayout.cshtml";
+    var user = ViewBag.user;
+    if (user != null)
+    {
+        Layout = "~/Areas/Admin/Views/Shared/_MasterLayout.cshtml";
+    }
 }
 
 <form method="post" enctype="multipart/form-data" asp-area="Admin" asp-controller="FileUpload" asp-action="Index">

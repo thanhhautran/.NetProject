@@ -2,7 +2,11 @@
 @model WebShop.Areas.Admin.Models.ProductModel
 @{
     ViewData["Title"] = "AddItem";
-    Layout = "~/Areas/Admin/Views/Shared/_MasterLayout.cshtml";
+    var user = ViewBag.user;
+    if (user != null)
+    {
+        Layout = "~/Areas/Admin/Views/Shared/_MasterLayout.cshtml";
+    }
 
 }
 <div class="container py-5">

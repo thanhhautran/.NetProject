@@ -1,6 +1,10 @@
 ﻿@{
     ViewBag.Title = "Chart";
-    Layout = "~/Areas/Admin/Views/Shared/_MasterLayout.cshtml";
+    var user = ViewBag.user;
+    if (user != null)
+    {
+        Layout = "~/Areas/Admin/Views/Shared/_MasterLayout.cshtml";
+    }
 
     var pie = ViewBag.PieChart;
 

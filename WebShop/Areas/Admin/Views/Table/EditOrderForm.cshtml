@@ -2,9 +2,13 @@
 @model WebShop.Areas.Admin.Models.OrderModel;
 @{
     ViewData["Title"] = "EditOrderForm";
-    Layout = "~/Areas/Admin/Views/Shared/_MasterLayout.cshtml";
+    var user = ViewBag.user;
+    if (user != null)
+    {
+        Layout = "~/Areas/Admin/Views/Shared/_MasterLayout.cshtml";
+    }
     var order = ViewBag.Order;
-  
+
     var routeData = new Dictionary<string, string>();
     routeData["id"] = ViewBag.Id + "";
 }

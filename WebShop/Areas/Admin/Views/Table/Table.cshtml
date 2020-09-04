@@ -2,7 +2,11 @@
 
 @{
     ViewBag.Title = "Table";
-    Layout = "~/Areas/Admin/Views/Shared/_MasterLayout.cshtml";
+    var user2 = ViewBag.user;
+    if (user2 != null)
+    {
+        Layout = "~/Areas/Admin/Views/Shared/_MasterLayout.cshtml";
+    }
     var listProduct = ViewBag.listProduct;
     var listOrder = ViewBag.ListOrder;
     var listUser = ViewBag.ListUser;
