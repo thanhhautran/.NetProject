@@ -10,12 +10,8 @@ namespace WebShop.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class FormController : Controller
-    {
-       
-        public FormController()
-        {
-            
-        }
+    { 
+       [HttpGet("/Admin/Form/Index")]
         public IActionResult Index()
         {
             //Session

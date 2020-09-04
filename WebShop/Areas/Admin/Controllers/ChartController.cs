@@ -19,6 +19,7 @@ namespace WebShop.Areas.Admin.Controllers
             
         }
 
+        [HttpGet("/Admin/Chart/Index")]
         public IActionResult Index()
         {
             //kpi theo quy

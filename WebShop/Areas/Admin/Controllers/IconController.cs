@@ -8,10 +8,12 @@ using WebShop.Helpers;
 
 namespace WebShop.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class IconController : Controller
     {
       
-        [Area("Admin")]
+        
+        [HttpGet("/Admin/Icon/Button")]
         public IActionResult Button()
         {
             //Session
@@ -19,63 +21,79 @@ namespace WebShop.Areas.Admin.Controllers
             ViewBag.user = user;
             return View("Button");
         }
-        [Area("Admin")]
+
+        [HttpGet("/Admin/Icon/Badges")]
         public IActionResult Badges()
         {
             var user = SessionHelper.GetObjectFromJson<khachhang>(HttpContext.Session, "User_Session");
             ViewBag.user = user;
             return View("Badges");
         }
-        [Area("Admin")]
+
+
+        [HttpGet("/Admin/Icon/Tabs")]
         public IActionResult Tabs()
         {
             var user = SessionHelper.GetObjectFromJson<khachhang>(HttpContext.Session, "User_Session");
             ViewBag.user = user;
             return View("Tabs");
         }
-        [Area("Admin")]
+
+
         public IActionResult Cards()
         {
             var user = SessionHelper.GetObjectFromJson<khachhang>(HttpContext.Session, "User_Session");
             ViewBag.user = user;
             return View("Cards");
         }
-        [Area("Admin")]
+
+
+        [HttpGet("/Admin/Icon/Alerts")]
         public IActionResult Alerts()
         {
             var user = SessionHelper.GetObjectFromJson<khachhang>(HttpContext.Session, "User_Session");
             ViewBag.user = user;
             return View("Alerts");
         }
-        [Area("Admin")]
+
+
+        [HttpGet("/Admin/Icon/ProgressBars")]
         public IActionResult ProgressBars()
         {
             var user = SessionHelper.GetObjectFromJson<khachhang>(HttpContext.Session, "User_Session");
             ViewBag.user = user;
             return View("ProgressBars");
         }
-        [Area("Admin")]
+
+
+        [HttpGet("/Admin/Icon/Modals")]
         public IActionResult Modals()
         {
             var user = SessionHelper.GetObjectFromJson<khachhang>(HttpContext.Session, "User_Session");
             ViewBag.user = user;
             return View("Modals");
         }
-        [Area("Admin")]
+
+
+        [HttpGet("/Admin/Icon/Switchs")]
         public IActionResult Switchs()
         {
             var user = SessionHelper.GetObjectFromJson<khachhang>(HttpContext.Session, "User_Session");
             ViewBag.user = user;
             return View("Switchs");
         }
-        [Area("Admin")]
+
+
+        [HttpGet("/Admin/Icon/Grids")]
         public IActionResult Grids()
         {
             var user = SessionHelper.GetObjectFromJson<khachhang>(HttpContext.Session, "User_Session");
             ViewBag.user = user;
             return View("Grids");
         }
-        [Area("Admin")]
+
+
+        [HttpGet("/Admin/Icon/FontawesomeIcon")]
         public IActionResult FontawesomeIcon()
         {
             var user = SessionHelper.GetObjectFromJson<khachhang>(HttpContext.Session, "User_Session");

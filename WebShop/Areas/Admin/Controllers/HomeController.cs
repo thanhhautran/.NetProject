@@ -64,7 +64,7 @@ namespace WebShop.Areas.Admin.Controllers
             return this.Index();
         }
 
-
+        [HttpGet("Admin/Home/AddItem")]
         public IActionResult AddItem()
         {
             //Session
@@ -73,7 +73,7 @@ namespace WebShop.Areas.Admin.Controllers
             return View("../Table/AddItemForm");
         }
 
-        [HttpPost("/Home/FilterProduct")]
+        [HttpPost("Admin/Home/FilterProduct")]
         public IActionResult FilterProduct()
         {
             var filterType = HttpContext.Request.Form["productFilter"].ToString();

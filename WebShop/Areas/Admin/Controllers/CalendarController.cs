@@ -8,11 +8,7 @@ namespace WebShop.Areas.Admin.Controllers
     [Area("Admin")]
     public class CalendarController : Controller
     {
-        khachhang user;
-        public CalendarController()
-        {
-            
-        }
+        [HttpGet("/Admin/Calendar/Index")]
         public IActionResult Index()
         {
             //Session

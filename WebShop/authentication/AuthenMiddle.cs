@@ -21,7 +21,8 @@ namespace WebShop.authentication
         public Task Invoke(HttpContext httpcontext)
         {
             var path = httpcontext.Request.Path;
-            if(path.HasValue && (path.Value.StartsWith("/Admin") || path.Value.StartsWith("/admin")))
+
+            if(path.HasValue && (path.Value.StartsWith("/Admin") || path.Value.StartsWith("/admin"))||path.Value.Contains("Admin") || path.Value.Contains("Admin"))
             {
                 var text = httpcontext.Session.GetString("User_Session");
                 

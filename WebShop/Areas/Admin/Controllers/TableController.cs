@@ -37,7 +37,7 @@ namespace WebShop.Areas.Admin.Controllers
             this.webHostEnvironment = hostEnvironment;
         }
 
-        [HttpGet]
+        [HttpGet("/Admin/Table/Index")]
         public IActionResult Index()
         {
             ViewBag.listProduct = adminProductDao.getAllProduct();
@@ -50,21 +50,23 @@ namespace WebShop.Areas.Admin.Controllers
         }
 
 
-        [HttpGet("/Table/DeleteItem")]
+        [HttpGet("/Admin/Table/DeleteItem")]
         public IActionResult DeleteItem([FromQuery] int id)
         {
             var item = pt.Sanpham.SingleOrDefault(s => s.id == id);
-            var spec = pt.Thongso.SingleOrDefault(s => s.id == item.thongsoid);
+            var spec = pt.Thongso.SingleOrDefault(s => s.id == item.id);
             String[] splitInfo = item.hinhanhsanpham.Split("/");
-            String path = Path.Combine("wwwroot", splitInfo[0],splitInfo[1]);
+            if (splitInfo.Length == 3) { 
+            String path = Path.Combine("wwwroot", splitInfo[0], splitInfo[1]);
             Directory.Delete(path, true);
+        }
             pt.Sanpham.Remove(item);
             pt.Thongso.Remove(spec);
             pt.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
 
-        [HttpGet("/EditOrder")]
+        [HttpGet("/Admin/Table/EditOrder")]
         public IActionResult DisplayEditOrder([FromQuery] int id)
         {
             var order = pt.DonHang.SingleOrDefault(i => i.id == id);
@@ -76,7 +78,7 @@ namespace WebShop.Areas.Admin.Controllers
             return View("EditOrderForm");
         }
 
-        [HttpPost("/Table/FilterOrder")]
+        [HttpPost("/Admin/Table/FilterOrder")]
         public IActionResult FilterOrder()
         {
             int filterType = Convert.ToInt32(HttpContext.Request.Form["orderFilter"]);
@@ -94,7 +96,7 @@ namespace WebShop.Areas.Admin.Controllers
             ViewBag.user = user;
             return this.Index();
         }
-        [HttpPost("/Table/FilterUser")]
+        [HttpPost("/Admin/Table/FilterUser")]
         public IActionResult FilterUser()
         {
             int filterType = Convert.ToInt32(HttpContext.Request.Form["userFilter"]);
@@ -109,7 +111,7 @@ namespace WebShop.Areas.Admin.Controllers
             return this.Index();
         }
 
-        [HttpPost("/Table/FilterProduct")]
+        [HttpPost("/Admin/Table/FilterProduct")]
         public IActionResult FilterProduct()
         {
             var filterType = HttpContext.Request.Form["productFilter"].ToString();
@@ -124,7 +126,7 @@ namespace WebShop.Areas.Admin.Controllers
         }
 
 
-        [HttpGet("/Edit")]
+        [HttpGet("/Admin/Edit")]
         public IActionResult DisplayEditITem([FromQuery] int id)
         {
             var item = pt.Sanpham.SingleOrDefault(i => i.id == id);
@@ -139,7 +141,7 @@ namespace WebShop.Areas.Admin.Controllers
             return View("EditItemForm");
         }
 
-        [HttpPost("/Table/EditOrder")]
+        [HttpPost("/Admin/Table/EditOrder")]
         [ValidateAntiForgeryToken]
         public IActionResult EditOrder(OrderModel model, [FromQuery] int id)
         {
@@ -174,7 +176,7 @@ namespace WebShop.Areas.Admin.Controllers
             }
         }
 
-        [HttpPost("/Table/EditItem")]
+        [HttpPost("/Admin/Table/EditItem")]
         [ValidateAntiForgeryToken]
         public IActionResult EditItem(ProductModel model, [FromQuery] int id)
         {
@@ -240,7 +242,7 @@ namespace WebShop.Areas.Admin.Controllers
             }
         }
 
-        [HttpPost("/Table/ChangeRole")]
+        [HttpPost("/Admin/Table/ChangeRole")]
         public IActionResult ChangeRole([FromQuery] int id)
         {
             var role = Convert.ToInt32(HttpContext.Request.Form["roleid"]);
@@ -254,7 +256,7 @@ namespace WebShop.Areas.Admin.Controllers
         }
 
 
-        [HttpPost("/Table/AddItem")]
+        [HttpPost("/Admin/Table/AddItem")]
         [ValidateAntiForgeryToken]
         public IActionResult AddItem(ProductModel model)
         {
@@ -265,7 +267,6 @@ namespace WebShop.Areas.Admin.Controllers
 
                 thongso spec = new thongso
                 {
-                    id = model.thongsoid,
                     hedieuhanh = model.hedieuhanh,
                     dophangiai = model.dophangiai,
                     manhinhrong = model.manhinhrong,
@@ -288,13 +289,11 @@ namespace WebShop.Areas.Admin.Controllers
                 };
 
 
-                spec.id = model.thongsoid;
                 sanpham product = new sanpham
                 {
 
                     tensanpham = model.tensanpham,
                     cosan = model.cosan,
-                    thongsoid = model.thongsoid,
                     thongso = spec,
                     gia = model.gia,
                     danhmucid = model.danhmucid,
@@ -309,12 +308,12 @@ namespace WebShop.Areas.Admin.Controllers
                 if (uniqueFileName != null)
                     product.hinhanhsanpham = uniqueFileName;
                 pt.Add(product);
-
-                spec.id = model.thongsoid;
                 pt.Add(spec);
-                //pt.Remove(type);
-
+ 
                 pt.SaveChanges();
+
+                changeSpecID();
+               
 
                 return RedirectToAction(nameof(Index));
             }
@@ -329,6 +328,15 @@ namespace WebShop.Areas.Admin.Controllers
             }
         }
 
+        private void changeSpecID()
+        {
+            var ts = pt.Thongso.ToList();
+            var id = ts[ts.Count() - 1].id;
+            var tmpspec = pt.Thongso.SingleOrDefault(Ts => Ts.id == id);
+            var tmpitem = pt.Sanpham.SingleOrDefault(Ts => Ts.id == id);
+            tmpitem.thongsoid = tmpspec.id;
+            pt.SaveChanges();
+        }
 
         public string UploadImage(ProductModel model)
         {
@@ -355,7 +363,7 @@ namespace WebShop.Areas.Admin.Controllers
                         { 
                             if (i == 1)
                             {
-                                result = Path.Combine("ProductImagese" + model.tensanpham + "/", i + Path.GetExtension(file.FileName));
+                                result = Path.Combine("ProductImages/", model.tensanpham +"/", i + Path.GetExtension(file.FileName));
                             }
                         
                             file.CopyTo(fileStream);
