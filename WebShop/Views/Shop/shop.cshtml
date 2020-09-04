@@ -244,7 +244,7 @@
                                         @if (cat.Equals(category))
                                         {
                                             String addcateURL = url + "&Category=" + "all";
-                                            <li><a href="@url">@cat</a></li>
+                                            <li><a href="@addcateURL">@cat</a></li>
                                         }
                                         else
                                         {
@@ -277,7 +277,7 @@
                                         @if (nhasx.Equals(brand))
                                         {
                                             String addbrandURL = url2 + "&Brand=" + "all";
-                                            <li class="brand"><a href="@url2">@nhasx</a></li>
+                                            <li class="brand"><a href="@addbrandURL">@nhasx</a></li>
                                         }
                                         else
                                         {
@@ -299,7 +299,7 @@
 
                         <div class="shop_content">
                             <div class="shop_bar clearfix">
-                                <div class="shop_product_count"><span>@dssp.Count()</span> products found</div>
+                                <div class="shop_product_count"><span>@dssp.Count()</span> sản phẩm tìm được</div>
                                 <div class="shop_sorting">
                                     <span>Sort by:</span>
                                     <ul>
@@ -349,12 +349,12 @@
                                     {
                                         if (i == pageIndex)
                                         {
-                                            String paginURL = url3 + "&pageIndex=" + pageIndex;
-                                            <li><a href="@url3">@i</a></li>
+                                            String paginURL = url3 + "&pageIndex=" + pageIndex.ToString();
+                                            <li><a href="@paginURL">@i</a></li>
                                         }
                                         else
                                         {
-                                            String paginURL = url3 + "&pageIndex=" + i;
+                                            String paginURL = url3 + "&pageIndex=" + i.ToString();
                                             <li><a href="@paginURL">@i</a></li>
                                         }
                                     }

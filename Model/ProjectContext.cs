@@ -22,7 +22,7 @@ namespace ProjectCore.Models
         public DbSet<chitietdonhang> Chitietdonhang { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("server=localhost;database=project_dotnet;user=root;password=1234")
+            optionsBuilder.UseMySQL("server=localhost;database=project_dotnet;user=root;password=StrongPass123")
            .UseLoggerFactory(LoggerFactory.Create(b => b
                     .AddFilter(level => level >= LogLevel.Information)))
                 .EnableSensitiveDataLogging()

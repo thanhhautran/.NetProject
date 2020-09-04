@@ -34,7 +34,7 @@
        
 
         //Thong so
-        [Required(ErrorMessage = "Please enter the specification id ")]
+        
         public int thongsoid { get; set; }
         public string hedieuhanh { get; set; }
         public string loaimanhinh { get; set; }

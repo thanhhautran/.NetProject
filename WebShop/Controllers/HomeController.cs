@@ -49,11 +49,15 @@ namespace ProjectCore.Controllers
             List<danhgia> cmtlist = DanhgiaDAO.getListDanhGia(id);
             String[] splitInfo = sanpham.hinhanhsanpham.Split("/");
             String path = Path.Combine("wwwroot",splitInfo[0],splitInfo[1]);
-            string[] fileEntries = Directory.GetFiles(path);
             List<string> listPath = new List<string>();
-            foreach(var f in fileEntries)
+            if (Directory.Exists(path))
             {
-                listPath.Add(Path.Combine(splitInfo[0], splitInfo[1], Path.GetFileName(f)));
+                string[] fileEntries = Directory.GetFiles(path);
+                listPath = new List<string>();
+                foreach (var f in fileEntries)
+                {
+                    listPath.Add(Path.Combine(splitInfo[0], splitInfo[1], Path.GetFileName(f)));
+                }
             }
             ViewBag.listPath = listPath;
             ViewBag.cmtlist = cmtlist;
